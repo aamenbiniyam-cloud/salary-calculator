@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ethiopian Salary Calculator</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f3f6f9;
+            color: #1f2937;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.10);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            margin-bottom: 8px;
+            color: #1d4ed8;
+        }
+
+        .header p {
+            color: #6b7280;
+            margin: 0;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #2563eb;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .error {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            background: #fee2e2;
+            color: #b91c1c;
+            border-radius: 8px;
+        }
+
+        .result {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .result h2 {
+            color: #1d4ed8;
+            margin-bottom: 20px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .take-home {
+            margin-top: 20px;
+            padding: 20px;
+            background: #ecfdf5;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .take-home-title {
+            color: #047857;
+            font-weight: bold;
+        }
+
+        .take-home-amount {
+            margin-top: 8px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #047857;
+        }
+
+        .tax-info {
+            margin-top: 25px;
+            padding: 15px;
+            background: #eff6ff;
+            border-radius: 8px;
+        }
+
+        .tax-info h3 {
+            margin-top: 0;
+            color: #1d4ed8;
+        }
+
+        .tax-info p {
+            margin: 7px 0;
+            font-size: 14px;
+        }
+
+        .footer {
+            margin-top: 25px;
+            text-align: center;
+            color: #6b7280;
+            font-size: 12px;
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                width: 94%;
+                padding: 20px;
+                margin: 20px auto;
+            }
+
+            .take-home-amount {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>🇪🇹 Salary Calculator</h1>
+        <p>Calculate Ethiopian employment income tax and take-home salary.</p>
+    </div>
+
+    <label for="salary">Gross Monthly Salary (ETB)</label>
+
+    <input
+        type="number"
+        id="salary"
+        placeholder="Example: 12000"
+        min="0"
+        step="0.01"
+    >
+
+    <label for="otherIncome">Other Taxable Income (ETB)</label>
+
+    <input
+        type="number"
+        id="otherIncome"
+        placeholder="Example: 0"
+        min="0"
+        step="0.01"
+    >
+
+    <label for="otherDeductions">Other Deductions (ETB)</label>
+
+    <input
+        type="number"
+        id="otherDeductions"
+        placeholder="Example: 500"
+        min="0"
+        step="0.01"
+    >
+
+    <button onclick="calculateSalary()">
+        Calculate Salary
+    </button>
+
+    <div class="error" id="error">
+        Please enter valid amounts.
+    </div>
+
+    <div class="result" id="result">
+
+        <h2>Salary Result</h2>
+
+        <div class="result-row">
+            <span>Gross salary</span>
+            <strong id="grossResult">0.00 ETB</strong>
+        </div>
+
+        <div class="result-row">
+            <span>Other taxable income</span>
+            <strong id="otherIncomeResult">0.00 ETB</strong>
+        </div>
+
+        <div class="result-row">
+            <span>Total taxable income</span>
+            <strong id="taxableResult">0.00 ETB</strong>
+        </div>
+
+        <div class="result-row">
+            <span>Income tax</span>
+            <strong id="taxResult">0.00 ETB</strong>
+        </div>
+
+        <div class="result-row">
+            <span>Other deductions</span>
+            <strong id="otherDeductionsResult">0.00 ETB</strong>
+        </div>
+
+        <div class="result-row">
+            <span>Total deductions</span>
+            <strong id="totalDeductionsResult">0.00 ETB</strong>
+        </div>
+
+        <div class="take-home">
+
+            <div class="take-home-title">
+                Estimated Take-Home Salary
+            </div>
+
+            <div class="take-home-amount" id="takeHome">
+                0.00 ETB
+            </div>
+
+        </div>
+
+        <div class="tax-info">
+
+            <h3>Tax Calculation</h3>
+
+            <p id="taxBracket">
+                Tax bracket: -
+            </p>
+
+            <p id="taxRate">
+                Tax rate: -
+            </p>
+
+            <p id="taxFormula">
+                Formula: -
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Salary Calculator — Version 2
+    </div>
+
+</div>
+
+
+<script>
+
+function calculateSalary() {
+
+    // Get values from the form
+    const salary = Number(
+        document.getElementById("salary").value
+    );
+
+    const otherIncome = Number(
+        document.getElementById("otherIncome").value || 0
+    );
+
+    const otherDeductions = Number(
+        document.getElementById("otherDeductions").value || 0
+    );
+
+
+    // Check for invalid numbers
+    if (
+        !Number.isFinite(salary) ||
+        !Number.isFinite(otherIncome) ||
+        !Number.isFinite(otherDeductions) ||
+        salary < 0 ||
+        otherIncome < 0 ||
+        otherDeductions < 0
+    ) {
+
+        document.getElementById("error").style.display = "block";
+        document.getElementById("result").style.display = "none";
+
+        return;
+    }
+
+
+    document.getElementById("error").style.display = "none";
+
+
+    // Calculate total taxable income
+    const taxableIncome = salary + otherIncome;
+
+
+    // Calculate Ethiopian employment income tax
+    const taxDetails = calculateEthiopianTax(taxableIncome);
+
+    const tax = taxDetails.tax;
+
+
+    // Calculate total deductions
+    const totalDeductions = tax + otherDeductions;
+
+
+    // Calculate take-home salary
+    const takeHome = taxableIncome - totalDeductions;
+
+
+    // Display results
+    document.getElementById("grossResult").textContent =
+        formatETB(salary);
+
+    document.getElementById("otherIncomeResult").textContent =
+        formatETB(otherIncome);
+
+    document.getElementById("taxableResult").textContent =
+        formatETB(taxableIncome);
+
+    document.getElementById("taxResult").textContent =
+        formatETB(tax);
+
+    document.getElementById("otherDeductionsResult").textContent =
+        formatETB(otherDeductions);
+
+    document.getElementById("totalDeductionsResult").textContent =
+        formatETB(totalDeductions);
+
+    document.getElementById("takeHome").textContent =
+        formatETB(takeHome);
+
+
+    // Display tax information
+    document.getElementById("taxBracket").textContent =
+        "Tax bracket: " + taxDetails.bracket;
+
+    document.getElementById("taxRate").textContent =
+        "Marginal tax rate: " + taxDetails.rate + "%";
+
+    document.getElementById("taxFormula").textContent =
+        "Formula: " + taxDetails.formula;
+
+
+    document.getElementById("result").style.display = "block";
+}
+
+
+/*
+    Ethiopian employment income tax brackets.
+
+    Current monthly brackets:
+
+    0 - 2,000       = 0%
+    2,001 - 4,000   = 15%
+    4,001 - 7,000   = 20%
+    7,001 - 10,000  = 25%
+    10,001 - 14,000 = 30%
+    Over 14,000     = 35%
+
+    The fixed deductions below make the
+    calculation progressive.
+*/
+
+function calculateEthiopianTax(income) {
+
+    let tax = 0;
+    let rate = 0;
+    let deduction = 0;
+    let bracket = "";
+
+
+    if (income <= 2000) {
+
+        rate = 0;
+        deduction = 0;
+        bracket = "0 – 2,000 ETB";
+
+    }
+
+    else if (income <= 4000) {
+
+        rate = 15;
+        deduction = 300;
+        bracket = "2,001 – 4,000 ETB";
+
+    }
+
+    else if (income <= 7000) {
+
+        rate = 20;
+        deduction = 500;
+        bracket = "4,001 – 7,000 ETB";
+
+    }
+
+    else if (income <= 10000) {
+
+        rate = 25;
+        deduction = 850;
+        bracket = "7,001 – 10,000 ETB";
+
+    }
+
+    else if (income <= 14000) {
+
+        rate = 30;
+        deduction = 1350;
+        bracket = "10,001 – 14,000 ETB";
+
+    }
+
+    else {
+
+        rate = 35;
+        deduction = 2050;
+        bracket = "Over 14,000 ETB";
+
+    }
+
+
+    // Tax = income × tax rate - fixed deduction
+    tax = (income * rate / 100) - deduction;
+
+
+    // Prevent negative tax
+    if (tax < 0) {
+        tax = 0;
+    }
+
+
+    const formula =
+        income.toFixed(2) +
+        " × " +
+        rate +
+        "% - " +
+        deduction.toFixed(2) +
+        " = " +
+        tax.toFixed(2) +
+        " ETB";
+
+
+    return {
+        tax: tax,
+        rate: rate,
+        deduction: deduction,
+        bracket: bracket,
+        formula: formula
+    };
+}
+
+
+function formatETB(amount) {
+
+    return amount.toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }) + " ETB";
+
+}
+
+</script>
+
+</body>
+</html>
