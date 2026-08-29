@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Salary Calculator | AMEN PROJECT University</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+  <a class="brand" href="index.html">
+    <span class="logo">AP</span>
+    <span>AMEN PROJECT University</span>
+  </a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a class="active" href="salary.html">
+      Salary Calculator
+    </a>
+    <a href="pension.html">Pension</a>
+    <a href="payslip.html">Payslip</a>
+  </nav>
+
+</header>
+
+
+<main class="page">
+
+  <span class="badge">Salary Calculator</span>
+
+  <h1>Salary Calculator</h1>
+
+  <p class="lead">
+    Calculate estimated pension, tax and take-home salary.
+  </p>
+
+
+  <div class="panel">
+
+    <label>
+      University / Employee Name
+
+      <input
+        id="salaryName"
+        type="text"
+        placeholder="Enter name or university"
+      >
+    </label>
+
+
+    <label>
+      Gross Monthly Salary (ETB)
+
+      <input
+        id="gross"
+        type="number"
+        min="0"
+        step="0.01"
+        placeholder="Enter salary"
+      >
+    </label>
+
+
+    <button
+      class="btn primary"
+      onclick="calculateSalary()"
+    >
+      Calculate Salary
+    </button>
+
+  </div>
+
+
+  <div
+    id="salaryResult"
+    class="result hidden"
+  ></div>
+
+</main>
+
+
+<footer>
+  © 2026 AMEN PROJECT University
+</footer>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
