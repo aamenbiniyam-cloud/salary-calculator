@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Pension | AMEN PROJECT University</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+
+<header class="topbar">
+
+  <a class="brand" href="index.html">
+    <span class="logo">AP</span>
+    <span>AMEN PROJECT University</span>
+  </a>
+
+  <nav>
+
+    <a href="index.html">
+      Home
+    </a>
+
+    <a href="salary.html">
+      Salary Calculator
+    </a>
+
+    <a class="active" href="pension.html">
+      Pension
+    </a>
+
+    <a href="payslip.html">
+      Payslip
+    </a>
+
+  </nav>
+
+</header>
+
+
+<main class="page">
+
+  <span class="badge">
+    Pension
+  </span>
+
+  <h1>
+    Pension Calculator
+  </h1>
+
+  <p class="lead">
+    Estimate employee and employer pension contributions.
+  </p>
+
+
+  <div class="panel">
+
+    <label>
+      Monthly Pensionable Salary (ETB)
+
+      <input
+        id="pensionSalary"
+        type="number"
+        min="0"
+        step="0.01"
+        placeholder="Enter salary"
+      >
+
+    </label>
+
+
+    <div class="two">
+
+      <label>
+        Employee Rate (%)
+
+        <input
+          id="employeeRate"
+          type="number"
+          value="7"
+          step="0.01"
+        >
+
+      </label>
+
+
+      <label>
+        Employer Rate (%)
+
+        <input
+          id="employerRate"
+          type="number"
+          value="11"
+          step="0.01"
+        >
+
+      </label>
+
+    </div>
+
+
+    <button
+      class="btn primary"
+      onclick="calculatePension()"
+    >
+      Calculate Pension
+    </button>
+
+  </div>
+
+
+  <div
+    id="pensionResult"
+    class="result hidden"
+  ></div>
+
+</main>
+
+
+<footer>
+  © 2026 AMEN PROJECT University
+</footer>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
