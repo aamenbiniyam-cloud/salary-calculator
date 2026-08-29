@@ -8,10 +8,14 @@
 
     <meta
         name="description"
-        content="Calculate Ethiopian salary tax, deductions and estimated take-home pay."
+        content="Professional Ethiopian salary calculator for estimating income tax and take-home salary."
     >
 
     <style>
+        /* =========================
+           DARK MODERN DESIGN
+           ========================= */
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -19,48 +23,63 @@
         }
 
         :root {
-            --primary: #123c69;
-            --primary-dark: #0b2948;
-            --accent: #16a085;
-            --background: #f4f7fb;
-            --card: #ffffff;
-            --text: #172033;
-            --muted: #6b7280;
-            --border: #e5eaf0;
-            --danger: #dc2626;
+            --bg: #070b16;
+            --bg2: #0d1324;
+            --card: #121a2b;
+            --card2: #182238;
+            --border: #26324a;
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --primary: #6366f1;
+            --primary-hover: #818cf8;
+            --green: #22c55e;
+            --green-dark: #14532d;
+            --red: #f87171;
+            --orange: #fb923c;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
+            min-height: 100vh;
             font-family:
                 Inter,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
                 Arial,
+                Helvetica,
                 sans-serif;
 
-            background: var(--background);
             color: var(--text);
-            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    #172554 0%,
+                    var(--bg2) 35%,
+                    var(--bg) 75%
+                );
         }
 
-        /* HEADER */
+        /* =========================
+           HEADER
+           ========================= */
 
         header {
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--primary-dark),
-                    var(--primary)
-                );
+            position: sticky;
+            top: 0;
+            z-index: 1000;
 
-            color: white;
-            padding: 22px 20px;
+            background: rgba(7, 11, 22, 0.88);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid var(--border);
         }
 
-        .header-content {
-            max-width: 1050px;
+        .nav {
+            max-width: 1100px;
             margin: auto;
+            padding: 16px 20px;
 
             display: flex;
             justify-content: space-between;
@@ -73,206 +92,303 @@
             gap: 12px;
         }
 
-        .logo {
+        .flag {
             width: 46px;
             height: 46px;
-
-            background: rgba(255,255,255,0.15);
-            border: 1px solid rgba(255,255,255,0.25);
 
             border-radius: 12px;
 
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
 
-            font-size: 23px;
+            font-size: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #16a34a,
+                    #eab308,
+                    #dc2626
+                );
+
+            box-shadow:
+                0 8px 25px rgba(34, 197, 94, 0.2);
         }
 
         .brand h1 {
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 19px;
+            line-height: 1.2;
         }
 
         .brand p {
+            color: var(--muted);
             font-size: 12px;
-            opacity: 0.75;
-            margin-top: 2px;
+            margin-top: 3px;
         }
 
-        .country {
-            font-size: 14px;
-            opacity: 0.9;
+        .nav-label {
+            color: var(--muted);
+            font-size: 13px;
         }
 
-        /* HERO */
+        /* =========================
+           HERO
+           ========================= */
 
         .hero {
-            max-width: 1050px;
-            margin: 0 auto;
-            padding: 48px 20px 25px;
+            max-width: 1100px;
+            margin: auto;
+            padding: 65px 20px 35px;
+        }
+
+        .badge {
+            display: inline-block;
+
+            padding: 7px 12px;
+
+            border-radius: 999px;
+
+            background: rgba(99, 102, 241, 0.12);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+
+            color: #a5b4fc;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            margin-bottom: 18px;
         }
 
         .hero h2 {
-            font-size: clamp(28px, 5vw, 44px);
-            line-height: 1.1;
-            margin-bottom: 14px;
-            color: var(--primary-dark);
+            max-width: 700px;
+
+            font-size: clamp(35px, 6vw, 62px);
+            line-height: 1.02;
+
+            letter-spacing: -2px;
+        }
+
+        .hero h2 span {
+            color: #818cf8;
         }
 
         .hero p {
             max-width: 650px;
+
             color: var(--muted);
+
             font-size: 16px;
-            line-height: 1.6;
+            line-height: 1.7;
+
+            margin-top: 18px;
         }
 
-        /* MAIN */
+        /* =========================
+           MAIN
+           ========================= */
 
-        .main {
-            max-width: 1050px;
-            margin: 0 auto;
-            padding: 10px 20px 50px;
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 15px 20px 60px;
 
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
+
+            gap: 24px;
         }
 
         .card {
-            background: var(--card);
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(24, 34, 56, 0.96),
+                    rgba(13, 19, 36, 0.96)
+                );
+
             border: 1px solid var(--border);
-            border-radius: 18px;
+
+            border-radius: 20px;
 
             padding: 28px;
 
             box-shadow:
-                0 10px 30px rgba(18, 60, 105, 0.07);
+                0 25px 70px rgba(0, 0, 0, 0.3);
         }
 
-        .card-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--primary-dark);
-            margin-bottom: 6px;
-        }
-
-        .card-description {
-            font-size: 13px;
-            color: var(--muted);
+        .card-header {
             margin-bottom: 25px;
         }
 
-        /* FORM */
+        .card-header h3 {
+            font-size: 21px;
+        }
+
+        .card-header p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        /* =========================
+           FORM
+           ========================= */
 
         .field {
-            margin-bottom: 19px;
+            margin-bottom: 18px;
         }
 
         label {
             display: block;
+
+            color: #e2e8f0;
+
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 700;
+
             margin-bottom: 8px;
         }
 
-        .input-wrapper {
+        .input-box {
             position: relative;
         }
 
         input {
             width: 100%;
-            padding: 15px 65px 15px 15px;
 
-            border: 1px solid #d6dce5;
-            border-radius: 10px;
+            padding: 15px 60px 15px 15px;
+
+            border-radius: 11px;
+
+            border: 1px solid #334155;
+
+            background: #0b1220;
+
+            color: white;
 
             font-size: 16px;
-            color: var(--text);
 
             outline: none;
-            background: #fbfcfe;
 
             transition: 0.2s;
+        }
+
+        input::placeholder {
+            color: #64748b;
         }
 
         input:focus {
             border-color: var(--primary);
 
             box-shadow:
-                0 0 0 3px rgba(18, 60, 105, 0.1);
-
-            background: white;
+                0 0 0 4px rgba(99, 102, 241, 0.12);
         }
 
         .currency {
             position: absolute;
+
             right: 14px;
             top: 50%;
 
             transform: translateY(-50%);
 
-            color: var(--muted);
-            font-size: 13px;
-            font-weight: 600;
+            color: #94a3b8;
+
+            font-size: 12px;
+            font-weight: 700;
         }
 
-        /* BUTTONS */
+        /* =========================
+           BUTTONS
+           ========================= */
 
-        .button-group {
-            display: flex;
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 110px;
             gap: 10px;
+
             margin-top: 25px;
         }
 
         button {
             border: none;
-            border-radius: 10px;
 
-            padding: 14px 18px;
+            border-radius: 11px;
+
+            padding: 14px;
 
             font-size: 15px;
             font-weight: 700;
 
             cursor: pointer;
 
-            transition:
-                transform 0.15s,
-                box-shadow 0.15s,
-                background 0.15s;
+            transition: 0.2s;
         }
 
         .calculate {
-            flex: 1;
-            background: var(--primary);
             color: white;
 
+            background:
+                linear-gradient(
+                    135deg,
+                    #6366f1,
+                    #4f46e5
+                );
+
             box-shadow:
-                0 5px 15px rgba(18, 60, 105, 0.2);
+                0 10px 25px rgba(99, 102, 241, 0.25);
         }
 
         .calculate:hover {
-            background: var(--primary-dark);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #818cf8,
+                    #6366f1
+                );
         }
 
         .reset {
-            background: #eef1f5;
-            color: #374151;
+            color: #e2e8f0;
+
+            background: #202a40;
         }
 
         .reset:hover {
-            background: #e2e6eb;
+            background: #2d3953;
         }
 
-        /* RESULTS */
+        /* =========================
+           ERROR
+           ========================= */
 
-        .result-card {
-            min-height: 100%;
+        .error {
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 12px;
+
+            border-radius: 10px;
+
+            background: rgba(127, 29, 29, 0.25);
+
+            border: 1px solid #7f1d1d;
+
+            color: #fca5a5;
+
+            font-size: 13px;
         }
 
-        .result-placeholder {
-            min-height: 300px;
+        /* =========================
+           RESULT AREA
+           ========================= */
+
+        .empty {
+            min-height: 440px;
 
             display: flex;
             flex-direction: column;
@@ -285,67 +401,83 @@
             color: var(--muted);
         }
 
-        .placeholder-icon {
-            width: 65px;
-            height: 65px;
+        .empty-icon {
+            width: 70px;
+            height: 70px;
 
-            border-radius: 50%;
+            border-radius: 20px;
 
-            background: #eef4fa;
+            background:
+                linear-gradient(
+                    135deg,
+                    #202a40,
+                    #151d31
+                );
 
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
 
-            font-size: 30px;
+            font-size: 32px;
 
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
-        .result-content {
+        .result {
             display: none;
         }
 
         .take-home {
+            padding: 25px;
+
+            border-radius: 16px;
+
             background:
                 linear-gradient(
                     135deg,
-                    #ecfdf5,
-                    #f4fffb
+                    #052e1a,
+                    #0f3d2a
                 );
 
-            border: 1px solid #c9f1df;
-
-            border-radius: 14px;
-
-            padding: 22px;
-
-            margin-bottom: 22px;
+            border: 1px solid #166534;
 
             text-align: center;
+
+            margin-bottom: 22px;
         }
 
         .take-home-label {
-            color: #087f5b;
-            font-size: 13px;
-            font-weight: 700;
+            color: #86efac;
+
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
         }
 
         .take-home-value {
-            color: #087f5b;
-            font-size: clamp(30px, 5vw, 40px);
-            font-weight: 800;
+            color: #4ade80;
 
-            margin-top: 7px;
+            font-size: clamp(32px, 5vw, 45px);
+
+            font-weight: 900;
+
+            margin-top: 8px;
         }
 
-        .take-home-subtitle {
-            color: #5b8b7b;
+        .take-home-note {
+            color: #86efac;
+
             font-size: 12px;
+
             margin-top: 5px;
         }
+
+        /* =========================
+           BREAKDOWN
+           ========================= */
 
         .breakdown {
             border-top: 1px solid var(--border);
@@ -363,7 +495,7 @@
             font-size: 14px;
         }
 
-        .row span:first-child {
+        .row span {
             color: var(--muted);
         }
 
@@ -372,853 +504,903 @@
         }
 
         .tax {
-            color: #c2410c;
+            color: var(--orange) !important;
         }
 
         .deduction {
-            color: #b91c1c;
+            color: var(--red) !important;
         }
 
-        /* TAX INFO */
+        .total {
+            color: #a5b4fc !important;
+        }
 
-        .tax-box {
-            margin-top: 22px;
+        /* =========================
+           TAX DETAILS
+           ========================= */
 
-            padding: 17px;
+        .tax-info {
+            margin-top: 20px;
 
-            background: #f5f8fc;
+            padding: 18px;
 
-            border-radius: 12px;
+            border-radius: 14px;
+
+            background: #0b1220;
 
             border: 1px solid var(--border);
         }
 
-        .tax-box h3 {
+        .tax-info h4 {
+            margin-bottom: 12px;
+
             font-size: 14px;
-            margin-bottom: 10px;
-            color: var(--primary-dark);
         }
 
-        .tax-box p {
-            font-size: 12px;
+        .tax-info p {
             color: var(--muted);
-            line-height: 1.6;
-            margin-bottom: 5px;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+            margin-bottom: 4px;
         }
 
-        /* ERROR */
+        /* =========================
+           PRIVACY
+           ========================= */
 
-        .error {
-            display: none;
+        .privacy {
+            margin-top: 20px;
 
-            background: #fef2f2;
-            border: 1px solid #fecaca;
+            padding: 14px;
 
-            color: var(--danger);
+            border-radius: 12px;
 
-            padding: 12px;
-            border-radius: 9px;
+            background: rgba(34, 197, 94, 0.06);
 
-            margin-top: 15px;
+            border: 1px solid rgba(34, 197, 94, 0.2);
 
+            display: flex;
+            gap: 10px;
+        }
+
+        .privacy-icon {
+            font-size: 20px;
+        }
+
+        .privacy strong {
             font-size: 13px;
         }
 
-        /* FOOTER */
+        .privacy p {
+            color: var(--muted);
 
-        footer {
-            background: var(--primary-dark);
-            color: white;
+            font-size: 11px;
 
-            padding: 30px 20px;
-
-            text-align: center;
+            margin-top: 3px;
         }
 
-        footer strong {
+        /* =========================
+           FOOTER
+           ========================= */
+
+        footer {
+            border-top: 1px solid var(--border);
+
+            background: #050812;
+
+            text-align: center;
+
+            padding: 35px 20px;
+        }
+
+        footer h3 {
             font-size: 15px;
         }
 
         footer p {
-            color: rgba(255,255,255,0.65);
-            font-size: 12px;
-            margin-top: 7px;
-        }
-
-        .disclaimer {
-            max-width: 700px;
-            margin: 15px auto 0;
+            color: #64748b;
 
             font-size: 11px;
-            color: rgba(255,255,255,0.5);
-            line-height: 1.5;
+
+            max-width: 700px;
+
+            margin: 9px auto;
+
+            line-height: 1.6;
         }
 
-        /* RESPONSIVE */
+        .made {
+            color: #94a3b8 !important;
+        }
 
-        @media (max-width: 760px) {
+        /* =========================
+           MOBILE
+           ========================= */
 
-            .header-content {
-                align-items: flex-start;
-            }
+        @media (max-width: 800px) {
 
-            .country {
-                display: none;
-            }
-
-            .hero {
-                padding-top: 35px;
-            }
-
-            .main {
+            .container {
                 grid-template-columns: 1fr;
             }
 
-            .card {
-                padding: 22px;
+            .hero {
+                padding-top: 45px;
+            }
+
+            .nav-label {
+                display: none;
             }
         }
 
-        @media (max-width: 450px) {
+        @media (max-width: 480px) {
 
-            .brand h1 {
-                font-size: 17px;
+            .container {
+                padding: 10px 14px 40px;
             }
 
-            .brand p {
-                font-size: 11px;
+            .hero {
+                padding: 40px 14px 25px;
             }
 
-            .button-group {
-                flex-direction: column;
+            .card {
+                padding: 21px;
+            }
+
+            .buttons {
+                grid-template-columns: 1fr;
             }
 
             .reset {
                 width: 100%;
             }
         }
+    </style>
+</head>
 
-        /* ANIMATION */
-
-        .result-content.show {
-            animation: fadeIn 0.35s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(8px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-/* ===== DARK MODERN DESIGN ===== */
-
-:root {
-    --primary: #6366f1;
-    --primary-dark: #4f46e5;
-    --accent: #22c55e;
-    --background: #0b1020;
-    --card: #151b2e;
-    --text: #f8fafc;
-    --muted: #94a3b8;
-    --border: #29324a;
-    --danger: #f87171;
-}
-
-body {
-    background:
-        radial-gradient(circle at top left, #1e293b 0, #0b1020 45%, #070b16 100%);
-    color: var(--text);
-}
-
-header {
-    background: rgba(10, 15, 30, 0.9);
-    border-bottom: 1px solid #29324a;
-    backdrop-filter: blur(12px);
-}
-
-.logo {
-    background: linear-gradient(135deg, #6366f1, #22c55e);
-    border: none;
-    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
-}
-
-.hero h2 {
-    color: #f8fafc;
-}
-
-.hero p {
-    color: #94a3b8;
-}
-
-.card {
-    background: rgba(21, 27, 46, 0.92);
-    border: 1px solid #29324a;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(12px);
-}
-
-.card-title {
-    color: #f8fafc;
-}
-
-.card-description {
-    color: #94a3b8;
-}
-
-label {
-    color: #e2e8f0;
-}
-
-input {
-    background: #0f172a;
-    color: #f8fafc;
-    border: 1px solid #334155;
-}
-
-input::placeholder {
-    color: #64748b;
-}
-
-input:focus {
-    background: #111827;
-    border-color: #6366f1;
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-}
-
-.currency {
-    color: #94a3b8;
-}
-
-.calculate {
-    background: linear-gradient(135deg, #6366f1, #4f46e5);
-    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
-}
-
-.calculate:hover {
-    background: linear-gradient(135deg, #818cf8, #6366f1);
-}
-
-.reset {
-    background: #252d42;
-    color: #e2e8f0;
-}
-
-.reset:hover {
-    background: #334155;
-}
-
-.placeholder-icon {
-    background: #202941;
-}
-
-.result-placeholder {
-    color: #94a3b8;
-}
-
-.take-home {
-    background: linear-gradient(135deg, #052e1a, #0f3d2a);
-    border: 1px solid #166534;
-}
-
-.take-home-label,
-.take-home-value {
-    color: #4ade80;
-}
-
-.take-home-subtitle {
-    color: #86efac;
-}
-
-.breakdown {
-    border-color: #29324a;
-}
-
-.row {
-    border-color: #29324a;
-}
-
-.row span:first-child {
-    color: #94a3b8;
-}
-
-.row strong {
-    color: #f8fafc;
-}
-
-.tax {
-    color: #fb923c;
-}
-
-.deduction {
-    color: #f87171;
-}
-
-.tax-box {
-    background: #0f172a;
-    border-color: #29324a;
-}
-
-.tax-box h3 {
-    color: #e2e8f0;
-}
-
-.tax-box p {
-    color: #94a3b8;
-}
-
-footer {
-    background: #070b16;
-    border-top: 1px solid #29324a;
-}
-
-footer p {
-    color: #64748b;
-}
-
-.disclaimer {
-    color: #475569;
-}</head>
 
 <body>
 
-<header>
+    <!-- =========================
+         HEADER
+         ========================= -->
 
-    <div class="header-content">
+    <header>
 
-        <div class="brand">
+        <div class="nav">
 
-            <div class="logo">
-                🇪🇹
+            <div class="brand">
+
+                <div class="flag">
+                    🇪🇹
+                </div>
+
+                <div>
+                    <h1>Ethiopian Salary Calculator</h1>
+
+                    <p>
+                        Salary • Tax • Take-home pay
+                    </p>
+                </div>
+
             </div>
 
-            <div>
-                <h1>Ethiopian Salary Calculator</h1>
-                <p>Understand your salary. Know your take-home pay.</p>
-            </div>
-
-        </div>
-
-        <div class="country">
-            Ethiopia • ETB
-        </div>
-
-    </div>
-
-</header>
-
-
-<section class="hero">
-
-    <h2>
-        Calculate your<br>
-        take-home salary.
-    </h2>
-
-    <p>
-        Enter your monthly salary and deductions to estimate
-        your Ethiopian employment income tax and net salary.
-    </p>
-
-</section>
-
-
-<main class="main">
-
-    <!-- CALCULATOR -->
-
-    <section class="card">
-
-        <div class="card-title">
-            Salary details
-        </div>
-
-        <div class="card-description">
-            Enter your monthly income below.
-        </div>
-
-
-        <div class="field">
-
-            <label for="salary">
-                Gross monthly salary
-            </label>
-
-            <div class="input-wrapper">
-
-                <input
-                    id="salary"
-                    type="number"
-                    min="0"
-                    step="0.01"
-                    placeholder="e.g. 12,000"
-                >
-
-                <span class="currency">
-                    ETB
-                </span>
-
+            <div class="nav-label">
+                ETB • Free calculator
             </div>
 
         </div>
 
+    </header>
 
-        <div class="field">
 
-            <label for="otherIncome">
-                Other taxable income
-            </label>
+    <!-- =========================
+         HERO
+         ========================= -->
 
-            <div class="input-wrapper">
+    <section class="hero">
 
-                <input
-                    id="otherIncome"
-                    type="number"
-                    min="0"
-                    step="0.01"
-                    placeholder="e.g. 0"
-                >
-
-                <span class="currency">
-                    ETB
-                </span>
-
-            </div>
-
+        <div class="badge">
+            🇪🇹 MADE FOR ETHIOPIA
         </div>
 
+        <h2>
+            Understand your
+            <span>take-home salary.</span>
+        </h2>
 
-        <div class="field">
-
-            <label for="otherDeductions">
-                Other deductions
-            </label>
-
-            <div class="input-wrapper">
-
-                <input
-                    id="otherDeductions"
-                    type="number"
-                    min="0"
-                    step="0.01"
-                    placeholder="e.g. 500"
-                >
-
-                <span class="currency">
-                    ETB
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <div class="error" id="error">
-            Please enter valid amounts. Values cannot be negative.
-        </div>
-
-
-        <div class="button-group">
-
-            <button
-                class="calculate"
-                onclick="calculateSalary()"
-            >
-                Calculate salary
-            </button>
-
-            <button
-                class="reset"
-                onclick="resetCalculator()"
-            >
-                Reset
-            </button>
-
-        </div>
+        <p>
+            Enter your monthly salary and deductions to estimate
+            your employment income tax and the amount you may
+            receive after deductions.
+        </p>
 
     </section>
 
 
-    <!-- RESULTS -->
+    <!-- =========================
+         MAIN
+         ========================= -->
 
-    <section class="card result-card">
-
-        <div class="card-title">
-            Your results
-        </div>
-
-        <div class="card-description">
-            Your estimated monthly salary breakdown.
-        </div>
+    <main class="container">
 
 
-        <div
-            class="result-placeholder"
-            id="placeholder"
-        >
+        <!-- CALCULATOR CARD -->
 
-            <div class="placeholder-icon">
-                🧮
-            </div>
+        <section class="card">
 
-            <strong>
-                Your results will appear here
-            </strong>
-
-            <p style="font-size:13px; margin-top:6px;">
-                Enter your salary and click Calculate.
-            </p>
-
-        </div>
-
-
-        <div
-            class="result-content"
-            id="result"
-        >
-
-            <div class="take-home">
-
-                <div class="take-home-label">
-                    Estimated take-home salary
-                </div>
-
-                <div
-                    class="take-home-value"
-                    id="takeHome"
-                >
-                    0.00 ETB
-                </div>
-
-                <div class="take-home-subtitle">
-                    Amount after estimated tax and deductions
-                </div>
-
-            </div>
-
-
-            <div class="breakdown">
-
-                <div class="row">
-                    <span>Gross salary</span>
-                    <strong id="grossResult">
-                        0.00 ETB
-                    </strong>
-                </div>
-
-                <div class="row">
-                    <span>Other taxable income</span>
-                    <strong id="otherIncomeResult">
-                        0.00 ETB
-                    </strong>
-                </div>
-
-                <div class="row">
-                    <span>Total taxable income</span>
-                    <strong id="taxableResult">
-                        0.00 ETB
-                    </strong>
-                </div>
-
-                <div class="row">
-                    <span>Income tax</span>
-                    <strong
-                        class="tax"
-                        id="taxResult"
-                    >
-                        0.00 ETB
-                    </strong>
-                </div>
-
-                <div class="row">
-                    <span>Other deductions</span>
-                    <strong
-                        class="deduction"
-                        id="otherDeductionsResult"
-                    >
-                        0.00 ETB
-                    </strong>
-                </div>
-
-                <div class="row">
-                    <span>Total deductions</span>
-                    <strong
-                        class="deduction"
-                        id="totalDeductionsResult"
-                    >
-                        0.00 ETB
-                    </strong>
-                </div>
-
-            </div>
-
-
-            <div class="tax-box">
+            <div class="card-header">
 
                 <h3>
-                    Tax calculation
+                    Salary information
                 </h3>
 
-                <p id="taxBracket">
-                    Tax bracket: -
-                </p>
-
-                <p id="taxRate">
-                    Marginal tax rate: -
-                </p>
-
-                <p id="taxFormula">
-                    Formula: -
+                <p>
+                    Enter your monthly salary details.
                 </p>
 
             </div>
 
-        </div>
 
-    </section>
+            <!-- GROSS SALARY -->
 
-</main>
+            <div class="field">
 
+                <label for="salary">
+                    Gross monthly salary
+                </label>
 
-<footer>
+                <div class="input-box">
 
-    <strong>
-        🇪🇹 Ethiopian Salary Calculator
-    </strong>
+                    <input
+                        id="salary"
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        placeholder="Example: 12000"
+                    >
 
-    <p>
-        A simple tool for understanding your estimated salary.
-    </p>
+                    <span class="currency">
+                        ETB
+                    </span>
 
-    <div class="disclaimer">
-        This calculator provides an estimate for informational purposes.
-        Actual payroll calculations may vary depending on applicable
-        employment, tax, pension and other deductions.
-    </div>
+                </div>
 
-</footer>
+            </div>
 
 
-<script>
+            <!-- OTHER INCOME -->
 
-function calculateSalary() {
+            <div class="field">
 
-    const salary =
-        Number(document.getElementById("salary").value);
+                <label for="otherIncome">
+                    Other taxable income
+                </label>
 
-    const otherIncome =
-        Number(document.getElementById("otherIncome").value || 0);
+                <div class="input-box">
 
-    const otherDeductions =
-        Number(document.getElementById("otherDeductions").value || 0);
+                    <input
+                        id="otherIncome"
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        placeholder="Example: 0"
+                    >
 
+                    <span class="currency">
+                        ETB
+                    </span>
 
-    if (
-        !Number.isFinite(salary) ||
-        !Number.isFinite(otherIncome) ||
-        !Number.isFinite(otherDeductions) ||
-        salary < 0 ||
-        otherIncome < 0 ||
-        otherDeductions < 0
-    ) {
+                </div>
 
-        document.getElementById("error").style.display = "block";
+            </div>
 
-        return;
-    }
 
+            <!-- OTHER DEDUCTIONS -->
 
-    document.getElementById("error").style.display = "none";
+            <div class="field">
 
+                <label for="otherDeductions">
+                    Other deductions
+                </label>
 
-    const taxableIncome =
-        salary + otherIncome;
+                <div class="input-box">
 
+                    <input
+                        id="otherDeductions"
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        placeholder="Example: 500"
+                    >
 
-    const taxDetails =
-        calculateEthiopianTax(taxableIncome);
+                    <span class="currency">
+                        ETB
+                    </span>
 
+                </div>
 
-    const tax =
-        taxDetails.tax;
+            </div>
 
 
-    const totalDeductions =
-        tax + otherDeductions;
+            <div
+                class="error"
+                id="error"
+            >
+                Please enter valid amounts. Values cannot be negative.
+            </div>
 
 
-    const takeHome =
-        taxableIncome - totalDeductions;
+            <!-- BUTTONS -->
 
+            <div class="buttons">
 
-    document.getElementById("grossResult").textContent =
-        formatETB(salary);
+                <button
+                    class="calculate"
+                    onclick="calculateSalary()"
+                >
+                    Calculate Salary
+                </button>
 
-    document.getElementById("otherIncomeResult").textContent =
-        formatETB(otherIncome);
+                <button
+                    class="reset"
+                    onclick="resetCalculator()"
+                >
+                    Reset
+                </button>
 
-    document.getElementById("taxableResult").textContent =
-        formatETB(taxableIncome);
+            </div>
 
-    document.getElementById("taxResult").textContent =
-        formatETB(tax);
 
-    document.getElementById("otherDeductionsResult").textContent =
-        formatETB(otherDeductions);
+            <!-- PRIVACY -->
 
-    document.getElementById("totalDeductionsResult").textContent =
-        formatETB(totalDeductions);
+            <div class="privacy">
 
-    document.getElementById("takeHome").textContent =
-        formatETB(takeHome);
+                <div class="privacy-icon">
+                    🔒
+                </div>
 
+                <div>
 
-    document.getElementById("taxBracket").textContent =
-        "Tax bracket: " + taxDetails.bracket;
+                    <strong>
+                        Your privacy is protected
+                    </strong>
 
-    document.getElementById("taxRate").textContent =
-        "Marginal tax rate: " + taxDetails.rate + "%";
+                    <p>
+                        Calculations happen in your browser.
+                        No salary information is sent to a server.
+                    </p>
 
-    document.getElementById("taxFormula").textContent =
-        "Formula: " + taxDetails.formula;
+                </div>
 
+            </div>
 
-    document.getElementById("placeholder").style.display =
-        "none";
+        </section>
 
 
-    const result =
-        document.getElementById("result");
+        <!-- RESULTS CARD -->
 
-    result.style.display = "block";
+        <section class="card">
 
-    result.classList.remove("show");
+            <div class="card-header">
 
-    void result.offsetWidth;
+                <h3>
+                    Salary breakdown
+                </h3>
 
-    result.classList.add("show");
-}
+                <p>
+                    Your estimated monthly result.
+                </p>
 
+            </div>
 
-function resetCalculator() {
 
-    document.getElementById("salary").value = "";
+            <!-- EMPTY STATE -->
 
-    document.getElementById("otherIncome").value = "";
+            <div
+                class="empty"
+                id="emptyState"
+            >
 
-    document.getElementById("otherDeductions").value = "";
+                <div class="empty-icon">
+                    🧮
+                </div>
 
-    document.getElementById("error").style.display = "none";
+                <strong>
+                    Your results will appear here
+                </strong>
 
-    document.getElementById("result").style.display = "none";
+                <p style="margin-top: 7px; font-size: 12px;">
+                    Enter your salary and click
+                    Calculate Salary.
+                </p>
 
-    document.getElementById("placeholder").style.display =
-        "flex";
-}
+            </div>
 
 
-function calculateEthiopianTax(income) {
+            <!-- RESULTS -->
 
-    let tax = 0;
-    let rate = 0;
-    let deduction = 0;
-    let bracket = "";
+            <div
+                class="result"
+                id="result"
+            >
 
+                <!-- TAKE HOME -->
 
-    if (income <= 2000) {
+                <div class="take-home">
 
-        rate = 0;
-        deduction = 0;
-        bracket = "0 – 2,000 ETB";
+                    <div class="take-home-label">
+                        Estimated take-home salary
+                    </div>
 
-    }
+                    <div
+                        class="take-home-value"
+                        id="takeHome"
+                    >
+                        0.00 ETB
+                    </div>
 
-    else if (income <= 4000) {
+                    <div class="take-home-note">
+                        After estimated tax and deductions
+                    </div>
 
-        rate = 15;
-        deduction = 300;
-        bracket = "2,001 – 4,000 ETB";
+                </div>
 
-    }
 
-    else if (income <= 7000) {
+                <!-- BREAKDOWN -->
 
-        rate = 20;
-        deduction = 500;
-        bracket = "4,001 – 7,000 ETB";
+                <div class="breakdown">
 
-    }
+                    <div class="row">
+                        <span>
+                            Gross salary
+                        </span>
 
-    else if (income <= 10000) {
+                        <strong id="grossResult">
+                            0.00 ETB
+                        </strong>
+                    </div>
 
-        rate = 25;
-        deduction = 850;
-        bracket = "7,001 – 10,000 ETB";
 
-    }
+                    <div class="row">
+                        <span>
+                            Other taxable income
+                        </span>
 
-    else if (income <= 14000) {
+                        <strong id="otherIncomeResult">
+                            0.00 ETB
+                        </strong>
+                    </div>
 
-        rate = 30;
-        deduction = 1350;
-        bracket = "10,001 – 14,000 ETB";
 
-    }
+                    <div class="row">
+                        <span>
+                            Total taxable income
+                        </span>
 
-    else {
+                        <strong
+                            class="total"
+                            id="taxableResult"
+                        >
+                            0.00 ETB
+                        </strong>
+                    </div>
 
-        rate = 35;
-        deduction = 2050;
-        bracket = "Over 14,000 ETB";
 
-    }
+                    <div class="row">
+                        <span>
+                            Income tax
+                        </span>
 
+                        <strong
+                            class="tax"
+                            id="taxResult"
+                        >
+                            0.00 ETB
+                        </strong>
+                    </div>
 
-    tax =
-        (income * rate / 100) - deduction;
 
+                    <div class="row">
+                        <span>
+                            Other deductions
+                        </span>
 
-    if (tax < 0) {
-        tax = 0;
-    }
+                        <strong
+                            class="deduction"
+                            id="otherDeductionsResult"
+                        >
+                            0.00 ETB
+                        </strong>
+                    </div>
 
 
-    const formula =
-        income.toFixed(2) +
-        " × " +
-        rate +
-        "% - " +
-        deduction.toFixed(2) +
-        " = " +
-        tax.toFixed(2) +
-        " ETB";
+                    <div class="row">
+                        <span>
+                            Total deductions
+                        </span>
 
+                        <strong
+                            class="deduction"
+                            id="totalDeductionsResult"
+                        >
+                            0.00 ETB
+                        </strong>
+                    </div>
 
-    return {
-        tax,
-        rate,
-        deduction,
-        bracket,
-        formula
-    };
-}
+                </div>
 
 
-function formatETB(amount) {
+                <!-- TAX INFORMATION -->
 
-    return amount.toLocaleString("en-US", {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-    }) + " ETB";
+                <div class="tax-info">
 
-}
+                    <h4>
+                        Tax calculation details
+                    </h4>
 
-</script>
+                    <p id="taxBracket">
+                        Tax bracket: -
+                    </p>
+
+                    <p id="taxRate">
+                        Marginal tax rate: -
+                    </p>
+
+                    <p id="taxFormula">
+                        Formula: -
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+         ========================= -->
+
+    <footer>
+
+        <h3>
+            🇪🇹 Ethiopian Salary Calculator
+        </h3>
+
+        <p>
+            This calculator is designed to provide an estimate
+            for informational purposes. Actual payroll results
+            may vary based on applicable tax, pension, benefits,
+            and other deductions.
+        </p>
+
+        <p class="made">
+            Made with ❤️ for Ethiopia
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+         ========================= -->
+
+    <script>
+
+        function calculateSalary() {
+
+            const salary =
+                Number(
+                    document.getElementById("salary").value
+                );
+
+            const otherIncome =
+                Number(
+                    document.getElementById("otherIncome").value || 0
+                );
+
+            const otherDeductions =
+                Number(
+                    document.getElementById("otherDeductions").value || 0
+                );
+
+
+            /* Validate */
+
+            if (
+                !Number.isFinite(salary) ||
+                !Number.isFinite(otherIncome) ||
+                !Number.isFinite(otherDeductions) ||
+                salary < 0 ||
+                otherIncome < 0 ||
+                otherDeductions < 0
+            ) {
+
+                document.getElementById("error")
+                    .style.display = "block";
+
+                document.getElementById("result")
+                    .style.display = "none";
+
+                return;
+            }
+
+
+            document.getElementById("error")
+                .style.display = "none";
+
+
+            /* Total taxable income */
+
+            const taxableIncome =
+                salary + otherIncome;
+
+
+            /* Calculate tax */
+
+            const taxDetails =
+                calculateEthiopianTax(
+                    taxableIncome
+                );
+
+
+            const tax =
+                taxDetails.tax;
+
+
+            /* Total deductions */
+
+            const totalDeductions =
+                tax + otherDeductions;
+
+
+            /* Take-home salary */
+
+            const takeHome =
+                taxableIncome - totalDeductions;
+
+
+            /* Display results */
+
+            document.getElementById(
+                "grossResult"
+            ).textContent =
+                formatETB(salary);
+
+
+            document.getElementById(
+                "otherIncomeResult"
+            ).textContent =
+                formatETB(otherIncome);
+
+
+            document.getElementById(
+                "taxableResult"
+            ).textContent =
+                formatETB(taxableIncome);
+
+
+            document.getElementById(
+                "taxResult"
+            ).textContent =
+                formatETB(tax);
+
+
+            document.getElementById(
+                "otherDeductionsResult"
+            ).textContent =
+                formatETB(otherDeductions);
+
+
+            document.getElementById(
+                "totalDeductionsResult"
+            ).textContent =
+                formatETB(totalDeductions);
+
+
+            document.getElementById(
+                "takeHome"
+            ).textContent =
+                formatETB(takeHome);
+
+
+            /* Tax details */
+
+            document.getElementById(
+                "taxBracket"
+            ).textContent =
+                "Tax bracket: " +
+                taxDetails.bracket;
+
+
+            document.getElementById(
+                "taxRate"
+            ).textContent =
+                "Marginal tax rate: " +
+                taxDetails.rate +
+                "%";
+
+
+            document.getElementById(
+                "taxFormula"
+            ).textContent =
+                "Formula: " +
+                taxDetails.formula;
+
+
+            /* Show results */
+
+            document.getElementById(
+                "emptyState"
+            ).style.display = "none";
+
+
+            document.getElementById(
+                "result"
+            ).style.display = "block";
+        }
+
+
+        function resetCalculator() {
+
+            document.getElementById(
+                "salary"
+            ).value = "";
+
+
+            document.getElementById(
+                "otherIncome"
+            ).value = "";
+
+
+            document.getElementById(
+                "otherDeductions"
+            ).value = "";
+
+
+            document.getElementById(
+                "error"
+            ).style.display = "none";
+
+
+            document.getElementById(
+                "result"
+            ).style.display = "none";
+
+
+            document.getElementById(
+                "emptyState"
+            ).style.display = "flex";
+        }
+
+
+        /*
+         * Ethiopian monthly employment income
+         * tax calculation used by this calculator.
+         *
+         * IMPORTANT:
+         * Verify the rates against the latest
+         * official Ethiopian tax rules before
+         * using this for actual payroll decisions.
+         */
+
+        function calculateEthiopianTax(income) {
+
+            let rate = 0;
+            let deduction = 0;
+            let bracket = "";
+
+
+            if (income <= 2000) {
+
+                rate = 0;
+                deduction = 0;
+
+                bracket =
+                    "0 – 2,000 ETB";
+
+            }
+
+            else if (income <= 4000) {
+
+                rate = 15;
+                deduction = 300;
+
+                bracket =
+                    "2,001 – 4,000 ETB";
+
+            }
+
+            else if (income <= 7000) {
+
+                rate = 20;
+                deduction = 500;
+
+                bracket =
+                    "4,001 – 7,000 ETB";
+
+            }
+
+            else if (income <= 10000) {
+
+                rate = 25;
+                deduction = 850;
+
+                bracket =
+                    "7,001 – 10,000 ETB";
+
+            }
+
+            else if (income <= 14000) {
+
+                rate = 30;
+                deduction = 1350;
+
+                bracket =
+                    "10,001 – 14,000 ETB";
+
+            }
+
+            else {
+
+                rate = 35;
+                deduction = 2050;
+
+                bracket =
+                    "Over 14,000 ETB";
+            }
+
+
+            let tax =
+                (income * rate / 100) - deduction;
+
+
+            if (tax < 0) {
+                tax = 0;
+            }
+
+
+            const formula =
+                income.toFixed(2) +
+                " × " +
+                rate +
+                "% − " +
+                deduction.toFixed(2) +
+                " = " +
+                tax.toFixed(2) +
+                " ETB";
+
+
+            return {
+                tax: tax,
+                rate: rate,
+                deduction: deduction,
+                bracket: bracket,
+                formula: formula
+            };
+        }
+
+
+        function formatETB(amount) {
+
+            return (
+                amount.toLocaleString(
+                    "en-US",
+                    {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    }
+                ) +
+                " ETB"
+            );
+        }
+
+    </script>
 
 </body>
 </html>
