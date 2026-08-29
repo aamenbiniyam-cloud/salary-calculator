@@ -1,34 +1,32 @@
 <!DOCTYPE html>
-
 <html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="Ethiopian salary calculator with tax, pension and payslip checking" name="description"/><title>Amen Project</title><style>
 :root{--bg:#070b16;--p:#111827;--p2:#182238;--line:#29354e;--t:#f8fafc;--m:#94a3b8;--pri:#6366f1;--g:#22c55e;--r:#f87171;--o:#fb923c;--b:#38bdf8}*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Arial,sans-serif;color:var(--t);background:radial-gradient(circle at 15% 5%,#172554 0,transparent 35%),radial-gradient(circle at 90% 15%,#312e81 0,transparent 25%),var(--bg);min-height:100vh}header{position:sticky;top:0;z-index:9;background:rgba(7,11,22,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{max-width:1100px;margin:auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}.brand{display:flex;align-items:center;gap:11px}.logo{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;font-size:24px;background:linear-gradient(135deg,#16a34a,#eab308,#dc2626)}.brand h1{margin:0;font-size:19px}.brand p,.nav-note{margin:3px 0 0;color:var(--m);font-size:12px}.hero{max-width:1100px;margin:auto;padding:52px 20px 25px}.badge{display:inline-block;padding:7px 12px;border-radius:99px;background:#111b39;border:1px solid #3b4aa3;color:#c7d2fe;font-size:12px;font-weight:800}.hero h2{font-size:clamp(34px,6vw,60px);line-height:1.03;letter-spacing:-2px;margin:18px 0 0}.hero h2 span{color:#818cf8}.hero>p{max-width:720px;color:var(--m);line-height:1.7;margin-top:16px}.tabs{max-width:1100px;margin:auto;padding:0 20px;display:flex;gap:8px}.tab{border:1px solid var(--line);border-bottom:none;background:#0e1628;color:#cbd5e1;padding:11px 16px;border-radius:10px 10px 0 0;cursor:pointer;font-weight:800}.tab.active{background:var(--p2);color:#fff}.main{max-width:1100px;margin:auto;padding:0 20px 60px}.section{display:none}.section.active{display:block}.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.card{background:linear-gradient(180deg,rgba(24,34,56,.98),rgba(13,19,36,.98));border:1px solid var(--line);border-radius:0 18px 18px 18px;padding:26px;box-shadow:0 25px 70px rgba(0,0,0,.28)}.card h3{margin:0;font-size:20px}.sub{color:var(--m);font-size:13px;margin:6px 0 22px}.field{margin-bottom:16px}label{display:block;font-size:13px;font-weight:800;color:#e2e8f0;margin-bottom:7px}.iw{position:relative}input,select{width:100%;padding:14px;border:1px solid #334155;border-radius:10px;background:#0b1220;color:#fff;font-size:15px;outline:0}input{padding-right:60px}input:focus,select:focus{border-color:var(--pri);box-shadow:0 0 0 3px rgba(99,102,241,.14)}.cur{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--m);font-size:12px;font-weight:800}.btns{display:grid;grid-template-columns:1fr 110px;gap:10px;margin-top:22px}button{border:0;border-radius:10px;padding:13px 15px;font-weight:800;cursor:pointer}.primary{background:linear-gradient(135deg,var(--pri),#4f46e5);color:#fff}.secondary{background:#222d44;color:#e2e8f0}.error{display:none;margin-top:12px;padding:11px;border-radius:9px;background:rgba(127,29,29,.25);border:1px solid #7f1d1d;color:#fecaca;font-size:12px}.placeholder{text-align:center;color:var(--m);padding:70px 10px}.placeholder .icon{font-size:42px;margin-bottom:12px}.result{display:none}.summary{padding:20px;border-radius:14px;margin-bottom:18px;background:linear-gradient(135deg,#052e1a,#0f3d2a);border:1px solid #166534;text-align:center}.summary small{color:#86efac;text-transform:uppercase;letter-spacing:1px;font-weight:900}.summary .value{font-size:38px;color:#4ade80;font-weight:900;margin-top:7px}.summary .note{font-size:11px;color:#86efac;margin-top:4px}.rows{border-top:1px solid var(--line)}.row{display:flex;justify-content:space-between;gap:15px;padding:12px 0;border-bottom:1px solid var(--line);font-size:13px}.row span{color:var(--m)}.tax{color:var(--o)!important}.ded{color:var(--r)!important}.ok{color:#4ade80!important}.info{color:var(--b)!important}.box{margin-top:18px;padding:15px;border:1px solid var(--line);border-radius:12px;background:#0b1220}.box h4{margin:0 0 8px;font-size:13px}.box p{margin:4px 0;color:var(--m);font-size:11px;line-height:1.6}.status{padding:18px;border-radius:14px;margin-bottom:18px;border:1px solid var(--line)}.status.good{background:rgba(34,197,94,.08);border-color:#166534}.status.warn{background:rgba(251,146,60,.08);border-color:#9a3412}.status.bad{background:rgba(248,113,113,.08);border-color:#991b1b}.status h4{margin:0 0 6px;font-size:18px}.status p{margin:0;color:var(--m);font-size:12px;line-height:1.6}footer{border-top:1px solid var(--line);background:#050812;padding:30px 20px;text-align:center}footer h3{margin:0;font-size:15px}footer p{max-width:760px;margin:8px auto;color:#64748b;font-size:11px;line-height:1.6}@media(max-width:800px){.grid{grid-template-columns:1fr}.nav-note{display:none}}@media(max-width:480px){.hero{padding:40px 14px 20px}.main{padding:0 14px 45px}.tabs{padding:0 14px}.card{padding:20px}.btns{grid-template-columns:1fr}.summary .value{font-size:31px}}
 
-.lang-wrap{display;align-items;gap:8px}
+.lang-wrap{display:flex;align-items:center;gap:8px}
 .lang-label{font-size:11px;color:#94a3b8;font-weight:700}
-#langSelect{width;min-width:105px;padding:9px 12px;border:1px solid #334155;border-radius:9px;background:#0b1220;color:#fff;font-size:12px}
+#langSelect{width:auto;min-width:105px;padding:9px 12px;border:1px solid #334155;border-radius:9px;background:#0b1220;color:#fff;font-size:12px}
 .print-btn{margin-top:15px;width:100%;background:#24304a;color:#fff;border:1px solid #3a4a69}
-.print-btn
-html[dir="rtl"] body{text-align}
-html[dir="rtl"] .nav,html[dir="rtl"] .brand{direction}
-html[dir="rtl"] .row{flex-direction}
-html[dir="rtl"] .summary,html[dir="rtl"] .status,html[dir="rtl"] .box{text-align}
-html[dir="rtl"] input,html[dir="rtl"] select{direction}
-@media(max-width:700px){.lang-label{display}}
+.print-btn:hover{background:#31405f}
+html[dir="rtl"] body{text-align:right}
+html[dir="rtl"] .nav,html[dir="rtl"] .brand{direction:rtl}
+html[dir="rtl"] .row{flex-direction:row-reverse}
+html[dir="rtl"] .summary,html[dir="rtl"] .status,html[dir="rtl"] .box{text-align:right}
+html[dir="rtl"] input,html[dir="rtl"] select{direction:rtl}
+@media(max-width:700px){.lang-label{display:none}}
 @media print{
-body>*(#printArea){display!important}
-#printArea{display!important;color:#111;background:#fff;padding:28px;font-family,sans-serif}
-#printArea h1{margin:0 0 4px;font-size:24px}
-#printArea h2{margin:24px 0 10px;font-size:18px}
-#printArea p{margin:5px 0;color:#444;font-size:12px}
-#printArea table{width:100%;border-collapse;margin-top:10px}
-#printArea th,#printArea td{border:1px solid #ccc;padding:8px;text-align;font-size:12px}
-#printArea th{background:#f3f4f6}
-#printArea .report-total{font-size:18px;font-weight:800;margin-top:16px}
-#printArea .report-note{margin-top:22px;padding:12px;border:1px solid #ddd}
+  body>*:not(#printArea){display:none!important}
+  #printArea{display:block!important;color:#111;background:#fff;padding:28px;font-family:Arial,sans-serif}
+  #printArea h1{margin:0 0 4px;font-size:24px}
+  #printArea h2{margin:24px 0 10px;font-size:18px}
+  #printArea p{margin:5px 0;color:#444;font-size:12px}
+  #printArea table{width:100%;border-collapse:collapse;margin-top:10px}
+  #printArea th,#printArea td{border:1px solid #ccc;padding:8px;text-align:left;font-size:12px}
+  #printArea th{background:#f3f4f6}
+  #printArea .report-total{font-size:18px;font-weight:800;margin-top:16px}
+  #printArea .report-note{margin-top:22px;padding:12px;border:1px solid #ddd}
 }
-#printArea{display}
+#printArea{display:none}
 </style></head><body>
-
 <header><div class="nav"><div class="brand"><div class="logo">🇪🇹</div><div><h1>Amen Project</h1><p>Salary • Tax • Pension • Payslip check</p></div></div><div class="nav-note">ETB • Private &amp; Public employees</div><div class="lang-wrap"><label class="lang-label" for="langSelect">Language</label><select aria-label="Language" id="langSelect" onchange="setLanguage(this.value)"><option value="en">English</option><option value="am">አማርኛ</option></select></div></div></header>
 <section class="hero"><div class="badge">🇪🇹 EMPLOYEE PAY TOOL</div><h2>Know your <span>salary.</span><br/>Check your payslip.</h2><p>Estimate Ethiopian employment income tax, pension contributions, take-home pay, and compare those estimates with the figures on your payslip.</p></section>
 <div class="tabs"><button class="tab active" onclick="tab('calc',this)">🧮 Salary Calculator</button><button class="tab" onclick="tab('pay',this)">📄 Payslip Checker</button></div>
@@ -40,404 +38,404 @@ body>*(#printArea){display!important}
 let currentLang = localStorage.getItem("salaryLang") || "en";
 
 const TX = {
-en: {
-pageTitle:"Amen Project",
-headerSub:"Salary • Tax • Pension • Payslip check",
-headerNote:"ETB • Private & Public employees",
-badge:"🇪🇹 EMPLOYEE PAY TOOL",
-heroTitle:'Know your <span>salary.</span><br>Check your payslip.',
-heroText:"Estimate Ethiopian employment income tax, pension contributions, take-home pay, and compare those estimates with the figures on your payslip.",
-calcTab:"🧮 Salary Calculator",
-payTab:"📄 Payslip Checker",
-salaryDetails:"Salary details",
-salarySub:"Enter your monthly salary information.",
-gross:"University",
-basic:"Basic / pensionable salary",
-otherIncome:"Other taxable income",
-otherDed:"Other deductions",
-employeeType:"Employee type",
-private:"Private organization",
-civil:"Civil/public service",
-military:"Military / police",
-calcError:"Please enter valid non-negative amounts. Basic salary cannot exceed gross salary.",
-calcButton:"Calculate salary",
-reset:"Reset",
-result:"Your result",
-resultSub:"Estimated monthly payroll breakdown.",
-emptyResult:"Your results will appear here",
-emptyCalc:"Enter your salary and calculate.",
-takeHome:"Estimated take-home salary",
-takeNote:"After pension, tax and other deductions",
-pension:"Employee pension (7%)",
-taxable:"Taxable income",
-tax:"Income tax",
-totalDed:"Total employee deductions",
-employerPension:"Employer pension",
-employerCost:"Total employer cost",
-taxDetails:"Tax details",
-taxBracket:"Tax bracket: ",
-marginal:"Marginal rate: ",
-formula:"Formula: ",
-payslipTitle:"Payslip checker",
-payslipSub:"Enter figures from your payslip and compare them with an estimate.",
-psGross:"Payslip gross salary",
-psBasic:"Payslip basic / pensionable salary",
-psOther:"Other taxable income",
-psOtherDed:"Other deductions",
-actualTax:"Actual income tax withheld",
-actualPension:"Actual employee pension withheld",
-actualNet:"Actual take-home pay",
-psError:"Please enter all required payslip figures as valid non-negative amounts. Basic salary cannot exceed gross salary.",
-checkButton:"Check payslip",
-checkResult:"Check result",
-checkSub:"A review aid—not proof of a payroll error.",
-psEmpty:"Enter your payslip figures",
-psEmptySub:"We'll flag differences worth reviewing.",
-estimatedTax:"Estimated tax",
-actualTaxLabel:"Actual tax withheld",
-taxDiff:"Tax difference",
-estimatedPension:"Estimated employee pension",
-actualPensionLabel:"Actual employee pension",
-pensionDiff:"Pension difference",
-estimatedNet:"Estimated take-home",
-actualNetLabel:"Actual take-home",
-netDiff:"Net pay difference",
-reviewNoteTitle:"Review note",
-reviewNote:"Differences can come from allowances, exemptions, benefits, arrears, loans, advances, rounding, payroll timing, or other applicable rules. Review the underlying payslip details before concluding that a mistake occurred.",
-print:"🖨️ Print payslip report",
-closeEnoughTitle:"✅ Figures are close to the estimate",
-closeEnoughText:"The entered tax, pension and net-pay figures are within ETB 1 of this calculator’s estimate. Keep your payslip for your records.",
-diffTitle:"⚠️ Difference found",
-diffText:"One or more figures differ from the estimate. Review the payslip details and assumptions before concluding there is an error.",
-footerTitle:"🇪🇹 Ethiopian Salary Calculator",
-footerText:"This tool provides estimates for informational purposes. Verify the current tax and pension rules and your individual circumstances before relying on a result.",
-made:"Made with ❤️ for Ethiopia",
-language:"Language",
-reportTitle:"Payslip Comparison Report",
-generated:"Generated on",
-reportStatus:"Review status",
-expected:"Expected",
-actual:"Actual",
-difference:"Difference",
-reportNote:"This report is a review aid, not proof of a payroll error. Actual payroll can vary because of applicable allowances, exemptions, benefits, arrears, loans, advances, rounding, timing, and other rules."
-},
-am: {
-pageTitle:"የኢትዮጵያ ደመወዝ ማስያ",
-headerSub:"ደመወዝ • ግብር • ጡረታ • የክፍያ ማረጋገጫ",
-headerNote:"ETB • ለግል እና ለመንግስት ሰራተኞች",
-badge:"🇪🇹 የሰራተኛ ክፍያ መሣሪያ",
-heroTitle:'ደመወዝዎን <span>ይወቁ።</span><br>የደመወዝ ደረሰኝዎን ይመርምሩ።',
-heroText:"የወር ደመወዝ፣ የሥራ ገቢ ግብር፣ የጡረታ መዋጮ እና የሚቀርዎትን ደመወዝ ይገምቱ፤ ከደመወዝ ደረሰኝዎ ጋርም ያነጻጽሩ።",
-calcTab:"🧮 የደመወዝ ማስያ",
-payTab:"📄 የደመወዝ ደረሰኝ ማረጋገጫ",
-salaryDetails:"የደመወዝ መረጃ",
-salarySub:"የወር ደመወዝ መረጃዎን ያስገቡ።",
-gross:"ጠቅላላ የወር ደመወዝ",
-basic:"መሠረታዊ / የጡረታ ደመወዝ",
-otherIncome:"ሌላ ግብር የሚከፈልበት ገቢ",
-otherDed:"ሌሎች ቅናሾች",
-employeeType:"የሰራተኛ አይነት",
-private:"የግል ድርጅት",
-civil:"የመንግስት ሰራተኛ",
-military:"ወታደራዊ / ፖሊስ",
-calcError:"እባክዎ ትክክለኛ ያልሆኑ አሉታዊ ቁጥሮችን አይጠቀሙ። መሠረታዊ ደመወዝ ከጠቅላላ ደመወዝ መብለጥ አይችልም።",
-calcButton:"ደመወዝ አስላ",
-reset:"ዳግም አስጀምር",
-result:"ውጤትዎ",
-resultSub:"የወር ደመወዝ ግምታዊ ዝርዝር።",
-emptyResult:"ውጤትዎ እዚህ ይታያል",
-emptyCalc:"ደመወዝዎን ያስገቡ እና ያስሉ።",
-takeHome:"ግምታዊ የሚቀር ደመወዝ",
-takeNote:"ከጡረታ፣ ግብር እና ሌሎች ቅናሾች በኋላ",
-pension:"የሰራተኛ ጡረታ (7%)",
-taxable:"ግብር የሚከፈልበት ገቢ",
-tax:"የገቢ ግብር",
-totalDed:"ጠቅላላ የሰራተኛ ቅናሾች",
-employerPension:"የአሰሪ ጡረታ",
-employerCost:"ጠቅላላ የአሰሪ ወጪ",
-taxDetails:"የግብር ዝርዝር",
-taxBracket:"የግብር ደረጃ፡ ",
-marginal:"የግብር ከፍተኛ መጠን፡ ",
-formula:"ቀመር፡ ",
-payslipTitle:"የደመወዝ ደረሰኝ ማረጋገጫ",
-payslipSub:"ከደመወዝ ደረሰኝዎ ላይ ያሉ ቁጥሮችን ያስገቡ እና ከግምቱ ጋር ያነጻጽሩ።",
-psGross:"በደረሰኝ ላይ ያለ ጠቅላላ ደመወዝ",
-psBasic:"በደረሰኝ ላይ ያለ መሠረታዊ / የጡረታ ደመወዝ",
-psOther:"ሌላ ግብር የሚከፈልበት ገቢ",
-psOtherDed:"ሌሎች ቅናሾች",
-actualTax:"በእውነት የተቆረጠ ገቢ ግብር",
-actualPension:"በእውነት የተቆረጠ የሰራተኛ ጡረታ",
-actualNet:"በእውነት የተቀበሉት ደመወዝ",
-psError:"እባክዎ ሁሉንም የሚያስፈልጉ ቁጥሮች በትክክል ያስገቡ። መሠረታዊ ደመወዝ ከጠቅላላ ደመወዝ መብለጥ አይችልም።",
-checkButton:"ደረሰኙን አረጋግጥ",
-checkResult:"የማረጋገጫ ውጤት",
-checkSub:"የመርማሪያ መሣሪያ ነው፤ የደመወዝ ስህተት መሆኑን በራሱ አያረጋግጥም።",
-psEmpty:"የደመወዝ ደረሰኝዎን ያስገቡ",
-psEmptySub:"መርመራ የሚያስፈልጋቸውን ልዩነቶች እናሳያለን።",
-estimatedTax:"ግምታዊ ግብር",
-actualTaxLabel:"በእውነት የተቆረጠ ግብር",
-taxDiff:"የግብር ልዩነት",
-estimatedPension:"ግምታዊ የሰራተኛ ጡረታ",
-actualPensionLabel:"በእውነት የተቆረጠ ጡረታ",
-pensionDiff:"የጡረታ ልዩነት",
-estimatedNet:"ግምታዊ የሚቀር ደመወዝ",
-actualNetLabel:"በእውነት የተቀበሉት ደመወዝ",
-netDiff:"የሚቀር ደመወዝ ልዩነት",
-reviewNoteTitle:"የመርማሪያ ማስታወሻ",
-reviewNote:"ልዩነቶች ከአበል፣ ከነፃነቶች፣ ከጥቅማጥቅሞች፣ ከተዘገየ ክፍያ፣ ከብድር፣ ከቅድመ ክፍያ፣ ከየሂሳብ ክብደት፣ ከየክፍያ ጊዜ እና ከሌሎች ደንቦች ሊመጡ ይችላሉ። ስህተት መኖሩን ከመወሰንዎ በፊት የደረሰኝዎን ዝርዝር ይመርምሩ።",
-print:"🖨️ የደመወዝ ደረሰኝ ሪፖርት አትም",
-closeEnoughTitle:"✅ አሃዞቹ ከግምቱ ጋር ተቀራራቢ ናቸው",
-closeEnoughText:"የገቢ ግብር፣ ጡረታ እና የሚቀር ደመወዝ አሃዞች ከዚህ ማስያ ግምት በETB 1 ውስጥ ናቸው። የደረሰኝዎን መዝገብ ያስቀምጡ።",
-diffTitle:"⚠️ ልዩነት ተገኝቷል",
-diffText:"አንድ ወይም ከዚያ በላይ አሃዞች ከግምቱ ይለያሉ። ስህተት ነው ብለው ከመወሰንዎ በፊት ደረሰኙን እና የተጠቀሱትን መሠረቶች ይመልከቱ።",
-footerTitle:"🇪🇹 የኢትዮጵያ ደመወዝ ማስያ",
-footerText:"ይህ መሣሪያ ለመረጃ ዓላማ ግምት ይሰጣል። በራስዎ ሁኔታ የሚመለከቱ የግብር እና የጡረታ ደንቦችን በቅርብ ያረጋግጡ።",
-made:"በኢትዮጵያ በፍቅር የተሰራ ❤️",
-language:"ቋንቋ",
-reportTitle:"የደመወዝ ደረሰኝ ንጽጽር ሪፖርት",
-generated:"የተፈጠረበት ቀን",
-reportStatus:"የማረጋገጫ ሁኔታ",
-expected:"ግምት",
-actual:"እውነተኛ",
-difference:"ልዩነት",
-reportNote:"ይህ ሪፖርት ለመርማሪያ ነው፤ የክፍያ ስህተትን በራሱ አያረጋግጥም። እውነተኛ ክፍያ በአበል፣ ነፃነት፣ ጥቅማጥቅም፣ የተዘገየ ክፍያ፣ ብድር፣ ቅድመ ክፍያ፣ የሂሳብ ክብደት፣ ጊዜ እና ሌሎች ደንቦች ምክንያት ሊለያይ ይችላል።"
-}
+  en: {
+    pageTitle:"Amen Project",
+    headerSub:"Salary • Tax • Pension • Payslip check",
+    headerNote:"ETB • Private & Public employees",
+    badge:"🇪🇹 EMPLOYEE PAY TOOL",
+    heroTitle:'Know your <span>salary.</span><br>Check your payslip.',
+    heroText:"Estimate Ethiopian employment income tax, pension contributions, take-home pay, and compare those estimates with the figures on your payslip.",
+    calcTab:"🧮 Salary Calculator",
+    payTab:"📄 Payslip Checker",
+    salaryDetails:"Salary details",
+    salarySub:"Enter your monthly salary information.",
+    gross:"University",
+    basic:"Basic / pensionable salary",
+    otherIncome:"Other taxable income",
+    otherDed:"Other deductions",
+    employeeType:"Employee type",
+    private:"Private organization",
+    civil:"Civil/public service",
+    military:"Military / police",
+    calcError:"Please enter valid non-negative amounts. Basic salary cannot exceed gross salary.",
+    calcButton:"Calculate salary",
+    reset:"Reset",
+    result:"Your result",
+    resultSub:"Estimated monthly payroll breakdown.",
+    emptyResult:"Your results will appear here",
+    emptyCalc:"Enter your salary and calculate.",
+    takeHome:"Estimated take-home salary",
+    takeNote:"After pension, tax and other deductions",
+    pension:"Employee pension (7%)",
+    taxable:"Taxable income",
+    tax:"Income tax",
+    totalDed:"Total employee deductions",
+    employerPension:"Employer pension",
+    employerCost:"Total employer cost",
+    taxDetails:"Tax details",
+    taxBracket:"Tax bracket: ",
+    marginal:"Marginal rate: ",
+    formula:"Formula: ",
+    payslipTitle:"Payslip checker",
+    payslipSub:"Enter figures from your payslip and compare them with an estimate.",
+    psGross:"Payslip gross salary",
+    psBasic:"Payslip basic / pensionable salary",
+    psOther:"Other taxable income",
+    psOtherDed:"Other deductions",
+    actualTax:"Actual income tax withheld",
+    actualPension:"Actual employee pension withheld",
+    actualNet:"Actual take-home pay",
+    psError:"Please enter all required payslip figures as valid non-negative amounts. Basic salary cannot exceed gross salary.",
+    checkButton:"Check payslip",
+    checkResult:"Check result",
+    checkSub:"A review aid—not proof of a payroll error.",
+    psEmpty:"Enter your payslip figures",
+    psEmptySub:"We'll flag differences worth reviewing.",
+    estimatedTax:"Estimated tax",
+    actualTaxLabel:"Actual tax withheld",
+    taxDiff:"Tax difference",
+    estimatedPension:"Estimated employee pension",
+    actualPensionLabel:"Actual employee pension",
+    pensionDiff:"Pension difference",
+    estimatedNet:"Estimated take-home",
+    actualNetLabel:"Actual take-home",
+    netDiff:"Net pay difference",
+    reviewNoteTitle:"Review note",
+    reviewNote:"Differences can come from allowances, exemptions, benefits, arrears, loans, advances, rounding, payroll timing, or other applicable rules. Review the underlying payslip details before concluding that a mistake occurred.",
+    print:"🖨️ Print payslip report",
+    closeEnoughTitle:"✅ Figures are close to the estimate",
+    closeEnoughText:"The entered tax, pension and net-pay figures are within ETB 1 of this calculator’s estimate. Keep your payslip for your records.",
+    diffTitle:"⚠️ Difference found",
+    diffText:"One or more figures differ from the estimate. Review the payslip details and assumptions before concluding there is an error.",
+    footerTitle:"🇪🇹 Ethiopian Salary Calculator",
+    footerText:"This tool provides estimates for informational purposes. Verify the current tax and pension rules and your individual circumstances before relying on a result.",
+    made:"Made with ❤️ for Ethiopia",
+    language:"Language",
+    reportTitle:"Payslip Comparison Report",
+    generated:"Generated on",
+    reportStatus:"Review status",
+    expected:"Expected",
+    actual:"Actual",
+    difference:"Difference",
+    reportNote:"This report is a review aid, not proof of a payroll error. Actual payroll can vary because of applicable allowances, exemptions, benefits, arrears, loans, advances, rounding, timing, and other rules."
+  },
+  am: {
+    pageTitle:"የኢትዮጵያ ደመወዝ ማስያ",
+    headerSub:"ደመወዝ • ግብር • ጡረታ • የክፍያ ማረጋገጫ",
+    headerNote:"ETB • ለግል እና ለመንግስት ሰራተኞች",
+    badge:"🇪🇹 የሰራተኛ ክፍያ መሣሪያ",
+    heroTitle:'ደመወዝዎን <span>ይወቁ።</span><br>የደመወዝ ደረሰኝዎን ይመርምሩ።',
+    heroText:"የወር ደመወዝ፣ የሥራ ገቢ ግብር፣ የጡረታ መዋጮ እና የሚቀርዎትን ደመወዝ ይገምቱ፤ ከደመወዝ ደረሰኝዎ ጋርም ያነጻጽሩ።",
+    calcTab:"🧮 የደመወዝ ማስያ",
+    payTab:"📄 የደመወዝ ደረሰኝ ማረጋገጫ",
+    salaryDetails:"የደመወዝ መረጃ",
+    salarySub:"የወር ደመወዝ መረጃዎን ያስገቡ።",
+    gross:"ጠቅላላ የወር ደመወዝ",
+    basic:"መሠረታዊ / የጡረታ ደመወዝ",
+    otherIncome:"ሌላ ግብር የሚከፈልበት ገቢ",
+    otherDed:"ሌሎች ቅናሾች",
+    employeeType:"የሰራተኛ አይነት",
+    private:"የግል ድርጅት",
+    civil:"የመንግስት ሰራተኛ",
+    military:"ወታደራዊ / ፖሊስ",
+    calcError:"እባክዎ ትክክለኛ ያልሆኑ አሉታዊ ቁጥሮችን አይጠቀሙ። መሠረታዊ ደመወዝ ከጠቅላላ ደመወዝ መብለጥ አይችልም።",
+    calcButton:"ደመወዝ አስላ",
+    reset:"ዳግም አስጀምር",
+    result:"ውጤትዎ",
+    resultSub:"የወር ደመወዝ ግምታዊ ዝርዝር።",
+    emptyResult:"ውጤትዎ እዚህ ይታያል",
+    emptyCalc:"ደመወዝዎን ያስገቡ እና ያስሉ።",
+    takeHome:"ግምታዊ የሚቀር ደመወዝ",
+    takeNote:"ከጡረታ፣ ግብር እና ሌሎች ቅናሾች በኋላ",
+    pension:"የሰራተኛ ጡረታ (7%)",
+    taxable:"ግብር የሚከፈልበት ገቢ",
+    tax:"የገቢ ግብር",
+    totalDed:"ጠቅላላ የሰራተኛ ቅናሾች",
+    employerPension:"የአሰሪ ጡረታ",
+    employerCost:"ጠቅላላ የአሰሪ ወጪ",
+    taxDetails:"የግብር ዝርዝር",
+    taxBracket:"የግብር ደረጃ፡ ",
+    marginal:"የግብር ከፍተኛ መጠን፡ ",
+    formula:"ቀመር፡ ",
+    payslipTitle:"የደመወዝ ደረሰኝ ማረጋገጫ",
+    payslipSub:"ከደመወዝ ደረሰኝዎ ላይ ያሉ ቁጥሮችን ያስገቡ እና ከግምቱ ጋር ያነጻጽሩ።",
+    psGross:"በደረሰኝ ላይ ያለ ጠቅላላ ደመወዝ",
+    psBasic:"በደረሰኝ ላይ ያለ መሠረታዊ / የጡረታ ደመወዝ",
+    psOther:"ሌላ ግብር የሚከፈልበት ገቢ",
+    psOtherDed:"ሌሎች ቅናሾች",
+    actualTax:"በእውነት የተቆረጠ ገቢ ግብር",
+    actualPension:"በእውነት የተቆረጠ የሰራተኛ ጡረታ",
+    actualNet:"በእውነት የተቀበሉት ደመወዝ",
+    psError:"እባክዎ ሁሉንም የሚያስፈልጉ ቁጥሮች በትክክል ያስገቡ። መሠረታዊ ደመወዝ ከጠቅላላ ደመወዝ መብለጥ አይችልም።",
+    checkButton:"ደረሰኙን አረጋግጥ",
+    checkResult:"የማረጋገጫ ውጤት",
+    checkSub:"የመርማሪያ መሣሪያ ነው፤ የደመወዝ ስህተት መሆኑን በራሱ አያረጋግጥም።",
+    psEmpty:"የደመወዝ ደረሰኝዎን ያስገቡ",
+    psEmptySub:"መርመራ የሚያስፈልጋቸውን ልዩነቶች እናሳያለን።",
+    estimatedTax:"ግምታዊ ግብር",
+    actualTaxLabel:"በእውነት የተቆረጠ ግብር",
+    taxDiff:"የግብር ልዩነት",
+    estimatedPension:"ግምታዊ የሰራተኛ ጡረታ",
+    actualPensionLabel:"በእውነት የተቆረጠ ጡረታ",
+    pensionDiff:"የጡረታ ልዩነት",
+    estimatedNet:"ግምታዊ የሚቀር ደመወዝ",
+    actualNetLabel:"በእውነት የተቀበሉት ደመወዝ",
+    netDiff:"የሚቀር ደመወዝ ልዩነት",
+    reviewNoteTitle:"የመርማሪያ ማስታወሻ",
+    reviewNote:"ልዩነቶች ከአበል፣ ከነፃነቶች፣ ከጥቅማጥቅሞች፣ ከተዘገየ ክፍያ፣ ከብድር፣ ከቅድመ ክፍያ፣ ከየሂሳብ ክብደት፣ ከየክፍያ ጊዜ እና ከሌሎች ደንቦች ሊመጡ ይችላሉ። ስህተት መኖሩን ከመወሰንዎ በፊት የደረሰኝዎን ዝርዝር ይመርምሩ።",
+    print:"🖨️ የደመወዝ ደረሰኝ ሪፖርት አትም",
+    closeEnoughTitle:"✅ አሃዞቹ ከግምቱ ጋር ተቀራራቢ ናቸው",
+    closeEnoughText:"የገቢ ግብር፣ ጡረታ እና የሚቀር ደመወዝ አሃዞች ከዚህ ማስያ ግምት በETB 1 ውስጥ ናቸው። የደረሰኝዎን መዝገብ ያስቀምጡ።",
+    diffTitle:"⚠️ ልዩነት ተገኝቷል",
+    diffText:"አንድ ወይም ከዚያ በላይ አሃዞች ከግምቱ ይለያሉ። ስህተት ነው ብለው ከመወሰንዎ በፊት ደረሰኙን እና የተጠቀሱትን መሠረቶች ይመልከቱ።",
+    footerTitle:"🇪🇹 የኢትዮጵያ ደመወዝ ማስያ",
+    footerText:"ይህ መሣሪያ ለመረጃ ዓላማ ግምት ይሰጣል። በራስዎ ሁኔታ የሚመለከቱ የግብር እና የጡረታ ደንቦችን በቅርብ ያረጋግጡ።",
+    made:"በኢትዮጵያ በፍቅር የተሰራ ❤️",
+    language:"ቋንቋ",
+    reportTitle:"የደመወዝ ደረሰኝ ንጽጽር ሪፖርት",
+    generated:"የተፈጠረበት ቀን",
+    reportStatus:"የማረጋገጫ ሁኔታ",
+    expected:"ግምት",
+    actual:"እውነተኛ",
+    difference:"ልዩነት",
+    reportNote:"ይህ ሪፖርት ለመርማሪያ ነው፤ የክፍያ ስህተትን በራሱ አያረጋግጥም። እውነተኛ ክፍያ በአበል፣ ነፃነት፣ ጥቅማጥቅም፣ የተዘገየ ክፍያ፣ ብድር፣ ቅድመ ክፍያ፣ የሂሳብ ክብደት፣ ጊዜ እና ሌሎች ደንቦች ምክንያት ሊለያይ ይችላል።"
+  }
 };
 
 function T(k){return TX[currentLang][k]||TX.en[k]||k}
 
 const staticMap = {
-"header h1":"pageTitle",
-".brand p":"headerSub",
-".nav-note":"headerNote",
-".badge":"badge",
-".hero p":"heroText",
-".card(1) .card-header h3":"salaryDetails",
-".card(1) .sub":"salarySub"
+  "header h1":"pageTitle",
+  ".brand p":"headerSub",
+  ".nav-note":"headerNote",
+  ".badge":"badge",
+  ".hero p":"heroText",
+  ".card:nth-of-type(1) .card-header h3":"salaryDetails",
+  ".card:nth-of-type(1) .sub":"salarySub"
 };
 
 function setLanguage(lang){
-currentLang = lang === "am" ? "am" : "en";
-localStorage.setItem("salaryLang", currentLang);
-document.documentElement.lang = currentLang === "am" ? "am" : "en";
-document.documentElement.dir = currentLang === "am" ? "rtl" : "ltr";
-document.getElementById("langSelect").value=currentLang;
+  currentLang = lang === "am" ? "am" : "en";
+  localStorage.setItem("salaryLang", currentLang);
+  document.documentElement.lang = currentLang === "am" ? "am" : "en";
+  document.documentElement.dir = currentLang === "am" ? "rtl" : "ltr";
+  document.getElementById("langSelect").value=currentLang;
 
-document.title=T("pageTitle");
+  document.title=T("pageTitle");
 
-document.querySelector("header h1").textContent=T("pageTitle");
-document.querySelector(".brand p").textContent=T("headerSub");
-document.querySelector(".nav-note").textContent=T("headerNote");
-document.querySelector(".badge").textContent=T("badge");
+  document.querySelector("header h1").textContent=T("pageTitle");
+  document.querySelector(".brand p").textContent=T("headerSub");
+  document.querySelector(".nav-note").textContent=T("headerNote");
+  document.querySelector(".badge").textContent=T("badge");
 
-const heroH=document.querySelector(".hero h2");
-heroH.innerHTML=T("heroTitle");
-document.querySelector(".hero > p").textContent=T("heroText");
+  const heroH=document.querySelector(".hero h2");
+  heroH.innerHTML=T("heroTitle");
+  document.querySelector(".hero > p").textContent=T("heroText");
 
-const tabs=document.querySelectorAll(".tab");
-tabs[0].textContent=T("calcTab");
-tabs[1].textContent=T("payTab");
+  const tabs=document.querySelectorAll(".tab");
+  tabs[0].textContent=T("calcTab");
+  tabs[1].textContent=T("payTab");
 
-const calc=s=>document.querySelector(s);
-const labels=document.querySelectorAll("label");
-const calcLabels=[T("gross"),T("basic"),T("otherIncome"),T("otherDed"),T("employeeType")];
-const psLabels=[T("psGross"),T("psBasic"),T("psOther"),T("psOtherDed"),T("actualTax"),T("actualPension"),T("actualNet"),T("employeeType")];
-labels[1].textContent=calcLabels[0];
-labels[2].textContent=calcLabels[1];
-labels[3].textContent=calcLabels[2];
-labels[4].textContent=calcLabels[3];
-labels[5].textContent=calcLabels[4];
-labels[6].textContent=psLabels[0];
-labels[7].textContent=psLabels[1];
-labels[8].textContent=psLabels[2];
-labels[9].textContent=psLabels[3];
-labels[10].textContent=psLabels[4];
-labels[11].textContent=psLabels[5];
-labels[12].textContent=psLabels[6];
-labels[13].textContent=psLabels[7];
+  const calc=s=>document.querySelector(s);
+  const labels=document.querySelectorAll("label");
+  const calcLabels=[T("gross"),T("basic"),T("otherIncome"),T("otherDed"),T("employeeType")];
+  const psLabels=[T("psGross"),T("psBasic"),T("psOther"),T("psOtherDed"),T("actualTax"),T("actualPension"),T("actualNet"),T("employeeType")];
+  labels[1].textContent=calcLabels[0];
+  labels[2].textContent=calcLabels[1];
+  labels[3].textContent=calcLabels[2];
+  labels[4].textContent=calcLabels[3];
+  labels[5].textContent=calcLabels[4];
+  labels[6].textContent=psLabels[0];
+  labels[7].textContent=psLabels[1];
+  labels[8].textContent=psLabels[2];
+  labels[9].textContent=psLabels[3];
+  labels[10].textContent=psLabels[4];
+  labels[11].textContent=psLabels[5];
+  labels[12].textContent=psLabels[6];
+  labels[13].textContent=psLabels[7];
 
-const cards=document.querySelectorAll(".card");
-cards[0].querySelector("h3").textContent=T("salaryDetails");
-cards[0].querySelector(".sub").textContent=T("salarySub");
-cards[1].querySelector("h3").textContent=T("result");
-cards[1].querySelector(".sub").textContent=T("resultSub");
-cards[2].querySelector("h3").textContent=T("payslipTitle");
-cards[2].querySelector(".sub").textContent=T("payslipSub");
-cards[3].querySelector("h3").textContent=T("checkResult");
-cards[3].querySelector(".sub").textContent=T("checkSub");
+  const cards=document.querySelectorAll(".card");
+  cards[0].querySelector("h3").textContent=T("salaryDetails");
+  cards[0].querySelector(".sub").textContent=T("salarySub");
+  cards[1].querySelector("h3").textContent=T("result");
+  cards[1].querySelector(".sub").textContent=T("resultSub");
+  cards[2].querySelector("h3").textContent=T("payslipTitle");
+  cards[2].querySelector(".sub").textContent=T("payslipSub");
+  cards[3].querySelector("h3").textContent=T("checkResult");
+  cards[3].querySelector(".sub").textContent=T("checkSub");
 
-document.getElementById("calcButtonText")?.remove();
-document.querySelectorAll(".btns button").forEach((b,i)=>{
-const isCalc = b.closest("#calc") || b.closest(".section")?.id==="calc";
-if(isCalc){ b.textContent=(i===0?T("calcButton")("reset")) }
-else { b.textContent=(i===0?T("checkButton")("reset")) }
-});
+  document.getElementById("calcButtonText")?.remove();
+  document.querySelectorAll(".btns button").forEach((b,i)=>{
+    const isCalc = b.closest("#calc") || b.closest(".section")?.id==="calc";
+    if(isCalc){ b.textContent=(i===0?T("calcButton"):T("reset")) }
+    else { b.textContent=(i===0?T("checkButton"):T("reset")) }
+  });
 
-document.getElementById("ce").textContent=T("calcError");
-document.getElementById("pe").textContent=T("psError");
+  document.getElementById("ce").textContent=T("calcError");
+  document.getElementById("pe").textContent=T("psError");
 
-const selects=document.querySelectorAll("select");
-// Employee-type selects
-[document.getElementById("sector"),document.getElementById("psector")].forEach(sel=>{
-if(!sel) return;
-sel.options[0].textContent=T("private");
-sel.options[1].textContent=T("civil");
-sel.options[2].textContent=T("military");
-});
+  const selects=document.querySelectorAll("select");
+  // Employee-type selects
+  [document.getElementById("sector"),document.getElementById("psector")].forEach(sel=>{
+    if(!sel) return;
+    sel.options[0].textContent=T("private");
+    sel.options[1].textContent=T("civil");
+    sel.options[2].textContent=T("military");
+  });
 
-document.querySelector("#cph strong").textContent=T("emptyResult");
-document.querySelector("#cph p").textContent=T("emptyCalc");
-document.querySelector("#pph strong").textContent=T("psEmpty");
-document.querySelector("#pph p").textContent=T("psEmptySub");
+  document.querySelector("#cph strong").textContent=T("emptyResult");
+  document.querySelector("#cph p").textContent=T("emptyCalc");
+  document.querySelector("#pph strong").textContent=T("psEmpty");
+  document.querySelector("#pph p").textContent=T("psEmptySub");
 
-document.querySelector("#result .summary small").textContent=T("takeHome");
-document.querySelector("#result .summary .note").textContent=T("takeNote");
+  document.querySelector("#result .summary small").textContent=T("takeHome");
+  document.querySelector("#result .summary .note").textContent=T("takeNote");
 
-const resultLabels=document.querySelectorAll("#cres .row span");
-const rl=[T("gross"),T("basic"),T("pension"),T("taxable"),T("tax"),T("otherDed"),T("totalDed"),T("employerPension"),T("employerCost")];
-resultLabels.forEach((el,i)=>{if(rl[i])el.textContent=rl[i]});
+  const resultLabels=document.querySelectorAll("#cres .row span");
+  const rl=[T("gross"),T("basic"),T("pension"),T("taxable"),T("tax"),T("otherDed"),T("totalDed"),T("employerPension"),T("employerCost")];
+  resultLabels.forEach((el,i)=>{if(rl[i])el.textContent=rl[i]});
 
-document.querySelector("#cres .box h4").textContent=T("taxDetails");
-document.querySelector("#pres .box h4").textContent=T("reviewNoteTitle");
-document.querySelector("#pres .box p").textContent=T("reviewNote");
+  document.querySelector("#cres .box h4").textContent=T("taxDetails");
+  document.querySelector("#pres .box h4").textContent=T("reviewNoteTitle");
+  document.querySelector("#pres .box p").textContent=T("reviewNote");
 
-const prLabels=document.querySelectorAll("#pres .row span");
-const pl=[T("estimatedTax"),T("actualTaxLabel"),T("taxDiff"),T("estimatedPension"),T("actualPensionLabel"),T("pensionDiff"),T("estimatedNet"),T("actualNetLabel"),T("netDiff")];
-prLabels.forEach((el,i)=>{if(pl[i])el.textContent=pl[i]});
+  const prLabels=document.querySelectorAll("#pres .row span");
+  const pl=[T("estimatedTax"),T("actualTaxLabel"),T("taxDiff"),T("estimatedPension"),T("actualPensionLabel"),T("pensionDiff"),T("estimatedNet"),T("actualNetLabel"),T("netDiff")];
+  prLabels.forEach((el,i)=>{if(pl[i])el.textContent=pl[i]});
 
-document.querySelector(".print-btn").textContent=T("print");
-document.querySelector("footer h3").textContent=T("footerTitle");
-document.querySelectorAll("footer p")[0].textContent=T("footerText");
-document.querySelectorAll("footer p")[1].textContent=T("made");
-document.querySelector(".lang-label").textContent=T("language");
+  document.querySelector(".print-btn").textContent=T("print");
+  document.querySelector("footer h3").textContent=T("footerTitle");
+  document.querySelectorAll("footer p")[0].textContent=T("footerText");
+  document.querySelectorAll("footer p")[1].textContent=T("made");
+  document.querySelector(".lang-label").textContent=T("language");
 
-// Placeholders
-document.getElementById("salary").placeholder=currentLang==="am"?"ምሳሌ፡ 12000":"Example: 12000";
-document.getElementById("basic").placeholder=currentLang==="am"?"ምሳሌ፡ 10000":"Example: 10000";
-document.getElementById("oincome").placeholder=currentLang==="am"?"ምሳሌ፡ 0":"Example: 0";
-document.getElementById("oded").placeholder=currentLang==="am"?"ምሳሌ፡ 500":"Example: 500";
-document.getElementById("pgross").placeholder=currentLang==="am"?"ምሳሌ፡ 12000":"Example: 12000";
-document.getElementById("pbasic").placeholder=currentLang==="am"?"ምሳሌ፡ 10000":"Example: 10000";
-document.getElementById("pother").placeholder=currentLang==="am"?"ምሳሌ፡ 0":"Example: 0";
-document.getElementById("poded").placeholder=currentLang==="am"?"ምሳሌ፡ 500":"Example: 500";
-document.getElementById("atax").placeholder=currentLang==="am"?"ምሳሌ፡ 1500":"Example: 1500";
-document.getElementById("apen").placeholder=currentLang==="am"?"ምሳሌ፡ 700":"Example: 700";
-document.getElementById("anet").placeholder=currentLang==="am"?"ምሳሌ፡ 9800":"Example: 9800";
+  // Placeholders
+  document.getElementById("salary").placeholder=currentLang==="am"?"ምሳሌ፡ 12000":"Example: 12000";
+  document.getElementById("basic").placeholder=currentLang==="am"?"ምሳሌ፡ 10000":"Example: 10000";
+  document.getElementById("oincome").placeholder=currentLang==="am"?"ምሳሌ፡ 0":"Example: 0";
+  document.getElementById("oded").placeholder=currentLang==="am"?"ምሳሌ፡ 500":"Example: 500";
+  document.getElementById("pgross").placeholder=currentLang==="am"?"ምሳሌ፡ 12000":"Example: 12000";
+  document.getElementById("pbasic").placeholder=currentLang==="am"?"ምሳሌ፡ 10000":"Example: 10000";
+  document.getElementById("pother").placeholder=currentLang==="am"?"ምሳሌ፡ 0":"Example: 0";
+  document.getElementById("poded").placeholder=currentLang==="am"?"ምሳሌ፡ 500":"Example: 500";
+  document.getElementById("atax").placeholder=currentLang==="am"?"ምሳሌ፡ 1500":"Example: 1500";
+  document.getElementById("apen").placeholder=currentLang==="am"?"ምሳሌ፡ 700":"Example: 700";
+  document.getElementById("anet").placeholder=currentLang==="am"?"ምሳሌ፡ 9800":"Example: 9800";
 
-refreshDynamicText();
+  refreshDynamicText();
 }
 
 function refreshDynamicText(){
-const cres=document.getElementById("cres");
-if(cres.style.display!=="none"){
-const te=document.getElementById("taxableOut").textContent.replace(" ETB","");
-if(te!==""){
-// keep current values; refresh only localized prefixes/formula labels
-const bracket=document.getElementById("brout").dataset.value||"";
-const rate=document.getElementById("rateout").dataset.value||"";
-const formula=document.getElementById("formout").dataset.value||"";
-if(bracket)document.getElementById("brout").textContent=T("taxBracket")+bracket;
-if(rate)document.getElementById("rateout").textContent=T("marginal")+rate;
-if(formula)document.getElementById("formout").textContent=T("formula")+formula;
-}
-}
+  const cres=document.getElementById("cres");
+  if(cres.style.display!=="none"){
+    const te=document.getElementById("taxableOut").textContent.replace(" ETB","");
+    if(te!==""){
+      // keep current values; refresh only localized prefixes/formula labels
+      const bracket=document.getElementById("brout").dataset.value||"";
+      const rate=document.getElementById("rateout").dataset.value||"";
+      const formula=document.getElementById("formout").dataset.value||"";
+      if(bracket)document.getElementById("brout").textContent=T("taxBracket")+bracket;
+      if(rate)document.getElementById("rateout").textContent=T("marginal")+rate;
+      if(formula)document.getElementById("formout").textContent=T("formula")+formula;
+    }
+  }
 }
 
 function n(id){return Number(document.getElementById(id).value||0)}
 function f(x){return x.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2})+" ETB"}
 
 function tax(x){
-let r,d,b;
-if(x<=2000){r=0;d=0;b="0 – 2,000 ETB"}
-else if(x<=4000){r=15;d=300;b="2,001 – 4,000 ETB"}
-else if(x<=7000){r=20;d=500;b="4,001 – 7,000 ETB"}
-else if(x<=10000){r=25;d=850;b="7,001 – 10,000 ETB"}
-else if(x<=14000){r=30;d=1350;b="10,001 – 14,000 ETB"}
-else{r=35;d=2050;b="Over 14,000 ETB"}
-let t=Math.max(0,x*r/100-d);
-return{t,r,b,formula:${x.toFixed(2)} × ${r}% − ${d.toFixed(2)} = ${t.toFixed(2)} ETB}
+  let r,d,b;
+  if(x<=2000){r=0;d=0;b="0 – 2,000 ETB"}
+  else if(x<=4000){r=15;d=300;b="2,001 – 4,000 ETB"}
+  else if(x<=7000){r=20;d=500;b="4,001 – 7,000 ETB"}
+  else if(x<=10000){r=25;d=850;b="7,001 – 10,000 ETB"}
+  else if(x<=14000){r=30;d=1350;b="10,001 – 14,000 ETB"}
+  else{r=35;d=2050;b="Over 14,000 ETB"}
+  let t=Math.max(0,x*r/100-d);
+  return{t,r,b,formula:`${x.toFixed(2)} × ${r}% − ${d.toFixed(2)} = ${t.toFixed(2)} ETB`}
 }
 
 function rates(s){return s==="military"?{e:.07,er:.33}:{e:.07,er:.11}}
 function valid(a){return a.every(x=>Number.isFinite(x)&&x>=0)}
 
 function calcSalary(){
-let g=n("salary"),b=n("basic"),oi=n("oincome"),od=n("oded"),s=document.getElementById("sector").value;
-if(!valid([g,b,oi,od])||b>g){document.getElementById("ce").style.display="block";return}
-document.getElementById("ce").style.display="none";
-let q=rates(s),pen=bq.e,ep=bq.er,taxable=Math.max(0,g+oi-pen),ti=tax(taxable),total=pen+ti.t+od,net=g+oi-total,ec=g+oi+ep;
-[["gross",g],["bout",b],["pout",pen],["tout",taxable],["taxout",ti.t],["odout",od],["tdout",total],["epout",ep],["ecout",ec]].forEach(([i,v])=>document.getElementById(i).textContent=f(v));
-document.getElementById("net").textContent=f(net);
-document.getElementById("brout").dataset.value=ti.b;
-document.getElementById("rateout").dataset.value=ti.r+"%";
-document.getElementById("formout").dataset.value=ti.formula;
-refreshDynamicText();
-document.getElementById("cph").style.display="none";
-document.getElementById("cres").style.display="block";
+  let g=n("salary"),b=n("basic"),oi=n("oincome"),od=n("oded"),s=document.getElementById("sector").value;
+  if(!valid([g,b,oi,od])||b>g){document.getElementById("ce").style.display="block";return}
+  document.getElementById("ce").style.display="none";
+  let q=rates(s),pen=b*q.e,ep=b*q.er,taxable=Math.max(0,g+oi-pen),ti=tax(taxable),total=pen+ti.t+od,net=g+oi-total,ec=g+oi+ep;
+  [["gross",g],["bout",b],["pout",pen],["tout",taxable],["taxout",ti.t],["odout",od],["tdout",total],["epout",ep],["ecout",ec]].forEach(([i,v])=>document.getElementById(i).textContent=f(v));
+  document.getElementById("net").textContent=f(net);
+  document.getElementById("brout").dataset.value=ti.b;
+  document.getElementById("rateout").dataset.value=ti.r+"%";
+  document.getElementById("formout").dataset.value=ti.formula;
+  refreshDynamicText();
+  document.getElementById("cph").style.display="none";
+  document.getElementById("cres").style.display="block";
 }
 
 function resetCalc(){
-["salary","basic","oincome","oded"].forEach(i=>document.getElementById(i).value="");
-document.getElementById("oincome").value="0";
-document.getElementById("oded").value="0";
-document.getElementById("ce").style.display="none";
-document.getElementById("cres").style.display="none";
-document.getElementById("cph").style.display="block";
+  ["salary","basic","oincome","oded"].forEach(i=>document.getElementById(i).value="");
+  document.getElementById("oincome").value="0";
+  document.getElementById("oded").value="0";
+  document.getElementById("ce").style.display="none";
+  document.getElementById("cres").style.display="none";
+  document.getElementById("cph").style.display="block";
 }
 
 let payslipState=null;
 
 function checkPay(){
-let g=n("pgross"),b=n("pbasic"),oi=n("pother"),od=n("poded"),at=n("atax"),ap=n("apen"),an=n("anet"),s=document.getElementById("psector").value;
-if(!valid([g,b,oi,od,at,ap,an])||b>g){document.getElementById("pe").style.display="block";return}
-document.getElementById("pe").style.display="none";
-let q=rates(s),pen=b*q.e,taxable=Math.max(0,g+oi-pen),ti=tax(taxable),en=g+oi-pen-ti.t-od,td=at-ti.t,pd=ap-pen,nd=an-en,ok=Math.abs(td)<=1&&Math.abs(pd)<=1&&Math.abs(nd)<=1;
-payslipState={g,b,oi,od,at,ap,an,pen,taxable,ti,en,td,pd,nd,ok};
-let st=document.getElementById("status");
-st.className="status "+(ok?"good":(Math.max(Math.abs(td),Math.abs(pd),Math.abs(nd))>100?"bad":"warn"));
-document.getElementById("stitle").textContent=ok?T("closeEnoughTitle")("diffTitle");
-document.getElementById("stext").textContent=ok?T("closeEnoughText")("diffText");
-[["petax",ti.t],["patax",at],["ptdiff",td],["pepen",pen],["papen",ap],["ppdiff",pd],["penet",en],["panet",an],["pndiff",nd]].forEach(([i,v])=>document.getElementById(i).textContent=f(v));
-document.getElementById("pph").style.display="none";
-document.getElementById("pres").style.display="block";
+  let g=n("pgross"),b=n("pbasic"),oi=n("pother"),od=n("poded"),at=n("atax"),ap=n("apen"),an=n("anet"),s=document.getElementById("psector").value;
+  if(!valid([g,b,oi,od,at,ap,an])||b>g){document.getElementById("pe").style.display="block";return}
+  document.getElementById("pe").style.display="none";
+  let q=rates(s),pen=b*q.e,taxable=Math.max(0,g+oi-pen),ti=tax(taxable),en=g+oi-pen-ti.t-od,td=at-ti.t,pd=ap-pen,nd=an-en,ok=Math.abs(td)<=1&&Math.abs(pd)<=1&&Math.abs(nd)<=1;
+  payslipState={g,b,oi,od,at,ap,an,pen,taxable,ti,en,td,pd,nd,ok};
+  let st=document.getElementById("status");
+  st.className="status "+(ok?"good":(Math.max(Math.abs(td),Math.abs(pd),Math.abs(nd))>100?"bad":"warn"));
+  document.getElementById("stitle").textContent=ok?T("closeEnoughTitle"):T("diffTitle");
+  document.getElementById("stext").textContent=ok?T("closeEnoughText"):T("diffText");
+  [["petax",ti.t],["patax",at],["ptdiff",td],["pepen",pen],["papen",ap],["ppdiff",pd],["penet",en],["panet",an],["pndiff",nd]].forEach(([i,v])=>document.getElementById(i).textContent=f(v));
+  document.getElementById("pph").style.display="none";
+  document.getElementById("pres").style.display="block";
 }
 
 function resetPay(){
-["pgross","pbasic","pother","poded","atax","apen","anet"].forEach(i=>document.getElementById(i).value="");
-document.getElementById("pother").value="0";
-document.getElementById("poded").value="0";
-document.getElementById("pe").style.display="none";
-document.getElementById("pres").style.display="none";
-document.getElementById("pph").style.display="block";
-payslipState=null;
+  ["pgross","pbasic","pother","poded","atax","apen","anet"].forEach(i=>document.getElementById(i).value="");
+  document.getElementById("pother").value="0";
+  document.getElementById("poded").value="0";
+  document.getElementById("pe").style.display="none";
+  document.getElementById("pres").style.display="none";
+  document.getElementById("pph").style.display="block";
+  payslipState=null;
 }
 
 function printPayslipReport(){
-if(!payslipState){return}
-const s=payslipState;
-const date=new Date().toLocaleString(currentLang==="am"?"am-ET":"en-US",{dateStyle:"medium",timeStyle:"short"});
-const status=s.ok?T("closeEnoughTitle")("diffTitle");
-const rows=[
-[T("estimatedTax"),f(s.ti.t),f(s.at),f(s.td)],
-[T("estimatedPension"),f(s.pen),f(s.ap),f(s.pd)],
-[T("estimatedNet"),f(s.en),f(s.an),f(s.nd)]
-];
-const area=document.getElementById("printArea")||(()=>{
-const x=document.createElement("div");x.id="printArea";document.body.appendChild(x);return x;
-})();
-area.innerHTML=
+  if(!payslipState){return}
+  const s=payslipState;
+  const date=new Date().toLocaleString(currentLang==="am"?"am-ET":"en-US",{dateStyle:"medium",timeStyle:"short"});
+  const status=s.ok?T("closeEnoughTitle"):T("diffTitle");
+  const rows=[
+    [T("estimatedTax"),f(s.ti.t),f(s.at),f(s.td)],
+    [T("estimatedPension"),f(s.pen),f(s.ap),f(s.pd)],
+    [T("estimatedNet"),f(s.en),f(s.an),f(s.nd)]
+  ];
+  const area=document.getElementById("printArea")||(()=>{
+    const x=document.createElement("div");x.id="printArea";document.body.appendChild(x);return x;
+  })();
+  area.innerHTML=`
     <h1>${T("reportTitle")}</h1>
     <p><strong>${T("generated")}:</strong> ${date}</p>
     <p><strong>${T("reportStatus")}:</strong> ${status}</p>
     <h2>${T("payslipTitle")}</h2>
     <table>
       <thead><tr><th>${currentLang==="am"?"መለኪያ":"Measure"}</th><th>${T("expected")}</th><th>${T("actual")}</th><th>${T("difference")}</th></tr></thead>
-      <tbody>${rows.map(r=><tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>).join("")}</tbody>
+      <tbody>${rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join("")}</tbody>
     </table>
     <p class="report-total">${T("gross")}: ${f(s.g)} &nbsp; | &nbsp; ${T("basic")}: ${f(s.b)}</p>
     <div class="report-note"><strong>${T("reviewNoteTitle")}:</strong><br>${T("reportNote")}</div>
-  ;
-window.print();
+  `;
+  window.print();
 }
 
 setLanguage(currentLang);
