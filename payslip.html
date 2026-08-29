@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Payslip | AMEN PROJECT University</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+
+<body>
+
+
+<header class="topbar no-print">
+
+  <a class="brand" href="index.html">
+    <span class="logo">AP</span>
+    <span>AMEN PROJECT University</span>
+  </a>
+
+
+  <nav>
+
+    <a href="index.html">
+      Home
+    </a>
+
+    <a href="salary.html">
+      Salary Calculator
+    </a>
+
+    <a href="pension.html">
+      Pension
+    </a>
+
+    <a class="active" href="payslip.html">
+      Payslip
+    </a>
+
+  </nav>
+
+</header>
+
+
+<main class="page">
+
+
+<div class="no-print">
+
+  <span class="badge">
+    Payslip
+  </span>
+
+  <h1>
+    Create a Payslip
+  </h1>
+
+  <p class="lead">
+    Enter the employee information and generate
+    a printable payslip.
+  </p>
+
+
+  <div class="panel">
+
+
+    <div class="two">
+
+      <label>
+        Employee Name
+
+        <input
+          id="payName"
+          type="text"
+          placeholder="Employee name"
+        >
+
+      </label>
+
+
+      <label>
+        Month
+
+        <input
+          id="payMonth"
+          type="month"
+        >
+
+      </label>
+
+    </div>
+
+
+    <div class="two">
+
+      <label>
+        University / Department
+
+        <input
+          id="payDept"
+          type="text"
+          placeholder="Department"
+        >
+
+      </label>
+
+
+      <label>
+        Employee ID
+
+        <input
+          id="payId"
+          type="text"
+          placeholder="Employee ID"
+        >
+
+      </label>
+
+    </div>
+
+
+    <div class="two">
+
+      <label>
+        Gross Salary (ETB)
+
+        <input
+          id="payGross"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="0.00"
+        >
+
+      </label>
+
+
+      <label>
+        Other Deductions (ETB)
+
+        <input
+          id="payOther"
+          type="number"
+          min="0"
+          step="0.01"
+          value="0"
+        >
+
+      </label>
+
+    </div>
+
+
+    <button
+      class="btn primary"
+      onclick="makePayslip()"
+    >
+      Generate Payslip
+    </button>
+
+
+  </div>
+
+</div>
+
+
+<div
+  id="payslip"
+  class="payslip hidden"
+>
+
+  <div class="slip-head">
+
+    <div class="logo big">
+      AP
+    </div>
+
+    <div>
+
+      <h2>
+        AMEN PROJECT University
+      </h2>
+
+      <p>
+        PAYSLIP
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="slip-info">
+
+    <span>
+      <b>Employee:</b>
+      <i id="outName"></i>
+    </span>
+
+    <span>
+      <b>Month:</b>
+      <i id="outMonth"></i>
+    </span>
+
+    <span>
+      <b>Department:</b>
+      <i id="outDept"></i>
+    </span>
+
+    <span>
+      <b>Employee ID:</b>
+      <i id="outId"></i>
+    </span>
+
+  </div>
+
+
+  <table>
+
+    <tr>
+      <th>Earnings</th>
+      <th>ETB</th>
+    </tr>
+
+    <tr>
+      <td>Gross Salary</td>
+      <td id="outGross"></td>
+    </tr>
+
+  </table>
+
+
+  <table>
+
+    <tr>
+      <th>Deductions</th>
+      <th>ETB</th>
+    </tr>
+
+    <tr>
+      <td>Employee Pension</td>
+      <td id="outPension"></td>
+    </tr>
+
+    <tr>
+      <td>Estimated Income Tax</td>
+      <td id="outTax"></td>
+    </tr>
+
+    <tr>
+      <td>Other Deductions</td>
+      <td id="outOther"></td>
+    </tr>
+
+  </table>
+
+
+  <div class="net">
+
+    <span>
+      NET PAY
+    </span>
+
+    <strong id="outNet"></strong>
+
+  </div>
+
+
+  <button
+    class="btn primary no-print"
+    onclick="window.print()"
+  >
+    🖨️ Print Payslip
+  </button>
+
+
+</div>
+
+</main>
+
+
+<footer class="no-print">
+  © 2026 AMEN PROJECT University
+</footer>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
